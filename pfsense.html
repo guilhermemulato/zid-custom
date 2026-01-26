@@ -1,0 +1,3759 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link rel="apple-touch-icon-precomposed" href="/apple-touch/apple-touch-icon-iphone-60x60-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="60x60" href="/apple-touch/apple-touch-icon-ipad-76x76-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="114x114" href="/apple-touch/apple-touch-icon-iphone-retina-120x120-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch/apple-touch-icon-ipad-retina-152x152-precomposed.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+	<link rel="manifest" href="/manifest.json">
+	<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="theme-color" content="#ffffff">
+
+	<link rel="stylesheet" href="/vendor/font-awesome/css/all.min.css?v=1747751119">
+	<link rel="stylesheet" href="/vendor/sortable/sortable-theme-bootstrap.css?v=1747751119">
+	<link rel="stylesheet" href="/vendor/jquery-treegrid/css/jquery.treegrid.css?v=1747751119">
+	<link rel="stylesheet" href="/css/pfSense.css?v=1747751119" />
+
+	<title>soulsolucoes.soul - Status: Dashboard</title>
+	<script type="text/javascript">
+	//<![CDATA[
+	var events = events || [];
+	//]]>
+	</script>
+<script type="text/javascript">if (top != self) {top.location.href = self.location.href;}</script><script type="text/javascript">var csrfMagicToken = "sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472";var csrfMagicName = "__csrf_magic";</script><script src="/csrf/csrf-magic.js" type="text/javascript"></script></head>
+
+<body id="3">
+<nav id="topmenu" class="navbar navbar-fixed-top navbar-inverse">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#pf-navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="/">
+				<svg id="logo" role="img" aria-labelledby="pfsense-logo" x="0px" y="0px" viewBox="0 0 282.8 84.2">
+	<title id="pfsense-logo-svg">pfSense Logo</title>
+	<path class="logo-st0" d="M27.8,57.7c2.9,0,5.4-0.9,7.5-2.6c2.1-1.7,3.6-4,4.4-6.8c0.8-2.8,0.6-5.1-0.5-6.8c-1.1-1.7-3.2-2.6-6.1-2.6 c-2.9,0-5.4,0.9-7.5,2.6c-2.1,1.7-3.5,4-4.3,6.8c-0.8,2.8-0.7,5.1,0.5,6.8C22.8,56.9,24.8,57.7,27.8,57.7"/>
+	<path class="logo-st0" d="M115.1,46.6c-1.5-0.8-3-1.4-4.7-1.8c-1.7-0.4-3.2-0.7-4.7-1.1c-1.5-0.3-2.7-0.7-3.6-1.1c-0.9-0.4-1.4-1.1-1.4-2 c0-1.1,0.5-1.9,1.4-2.4c0.9-0.5,1.9-0.7,2.8-0.7c2.8,0,5,1,6.7,3.1l7-7c-1.7-1.8-3.9-3.1-6.4-3.8c-2.5-0.7-5-1.1-7.4-1.1 c-1.9,0-3.9,0.2-5.7,0.7c-1.9,0.5-3.6,1.2-5,2.3c-1.5,1-2.6,2.3-3.5,3.9c-0.9,1.6-1.3,3.5-1.3,5.7c0,2.3,0.5,4.2,1.4,5.6 c0.9,1.4,2.1,2.5,3.6,3.3c1.5,0.8,3,1.3,4.7,1.7c1.7,0.4,3.2,0.7,4.7,1.1c1.5,0.3,2.7,0.7,3.6,1.2c0.9,0.5,1.4,1.2,1.4,2.2 c0,1-0.5,1.7-1.6,2.1c-1.1,0.4-2.3,0.6-3.6,0.6c-1.7,0-3.3-0.3-4.6-1c-1.3-0.7-2.5-1.7-3.6-3l-7,7.7c1.8,1.9,4.1,3.2,6.7,3.9 c2.7,0.7,5.3,1.1,7.9,1.1c2,0,4-0.2,6.1-0.6c2-0.4,3.9-1,5.5-2c1.6-0.9,3-2.2,4-3.8c1-1.6,1.6-3.5,1.6-5.9c0-2.3-0.5-4.2-1.4-5.6 C117.7,48.6,116.5,47.4,115.1,46.6"/>
+	<path class="logo-st0" d="M156.3,34.1c-1.5-1.7-3.3-3-5.5-3.9c-2.2-0.9-4.6-1.4-7.2-1.4c-2.9,0-5.6,0.5-8.1,1.4c-2.5,0.9-4.7,2.2-6.6,3.9 c-1.9,1.7-3.3,3.8-4.4,6.2c-1.1,2.4-1.6,5.1-1.6,8c0,3,0.5,5.6,1.6,8c1.1,2.4,2.5,4.5,4.4,6.2c1.9,1.7,4.1,3,6.6,3.9 c2.5,0.9,5.2,1.4,8.1,1.4c3,0,5.9-0.6,8.7-1.9c2.8-1.3,5.1-3.1,7-5.4l-8-5.9c-1,1.3-2.1,2.4-3.4,3.3c-1.3,0.8-2.9,1.3-4.8,1.3 c-2.2,0-4.1-0.7-5.7-2c-1.5-1.3-2.5-3.1-3-5.2H161v-3.6c0-3-0.4-5.6-1.2-8C159,37.9,157.8,35.8,156.3,34.1 M134.3,44.1 c0.1-0.9,0.3-1.8,0.7-2.6c0.4-0.8,0.9-1.6,1.6-2.2c0.7-0.6,1.5-1.2,2.5-1.6c1-0.4,2.1-0.6,3.4-0.6c2.1,0,3.8,0.7,5.1,2.1 c1.3,1.4,2,3,1.9,5H134.3z"/>
+	<path class="logo-st0" d="M198.3,33.8c-1-1.6-2.4-2.8-4.2-3.7c-1.8-0.9-4.1-1.3-7-1.3c-1.4,0-2.7,0.2-3.8,0.5c-1.2,0.4-2.2,0.8-3.1,1.4 c-0.9,0.6-1.7,1.2-2.4,1.9c-0.7,0.7-1.2,1.4-1.5,2.1H176v-5.1h-11v37.2h11.5V48.4c0-1.2,0.1-2.4,0.2-3.5c0.2-1.1,0.5-2.1,1-3 c0.5-0.9,1.2-1.6,2.1-2.1c0.9-0.5,2.1-0.8,3.6-0.8c1.5,0,2.6,0.3,3.4,0.9c0.8,0.6,1.4,1.4,1.8,2.4c0.4,1,0.6,2,0.7,3.2 c0.1,1.1,0.1,2.3,0.1,3.3v18.2h11.5V46.4c0-2.5-0.2-4.8-0.5-7C199.9,37.3,199.3,35.4,198.3,33.8"/>
+	<path class="logo-st0" d="M231.5,46.6c-1.5-0.8-3-1.4-4.7-1.8c-1.7-0.4-3.2-0.7-4.7-1.1c-1.5-0.3-2.7-0.7-3.6-1.1c-0.9-0.4-1.4-1.1-1.4-2 c0-1.1,0.5-1.9,1.4-2.4c0.9-0.5,1.9-0.7,2.8-0.7c2.8,0,5,1,6.7,3.1l7-7c-1.7-1.8-3.9-3.1-6.4-3.8c-2.5-0.7-5-1.1-7.4-1.1 c-1.9,0-3.9,0.2-5.7,0.7c-1.9,0.5-3.6,1.2-5,2.3c-1.5,1-2.6,2.3-3.5,3.9c-0.9,1.6-1.3,3.5-1.3,5.7c0,2.3,0.5,4.2,1.4,5.6 c0.9,1.4,2.1,2.5,3.6,3.3c1.5,0.8,3,1.3,4.7,1.7c1.7,0.4,3.2,0.7,4.7,1.1c1.5,0.3,2.7,0.7,3.6,1.2c0.9,0.5,1.4,1.2,1.4,2.2 c0,1-0.5,1.7-1.6,2.1c-1.1,0.4-2.3,0.6-3.6,0.6c-1.7,0-3.3-0.3-4.6-1c-1.3-0.7-2.5-1.7-3.6-3l-7,7.7c1.8,1.9,4.1,3.2,6.7,3.9 c2.7,0.7,5.3,1.1,7.9,1.1c2,0,4-0.2,6.1-0.6c2-0.4,3.9-1,5.5-2c1.6-0.9,3-2.2,4-3.8c1-1.6,1.6-3.5,1.6-5.9c0-2.3-0.5-4.2-1.4-5.6 C234.1,48.6,232.9,47.4,231.5,46.6"/>
+	<path class="logo-st0" d="M277.4,51.9v-4.2c-0.1-2.7-0.5-5.2-1.2-7.4c-0.8-2.4-2-4.5-3.5-6.2c-1.5-1.7-3.3-3-5.5-3.9 c-2.2-0.9-4.6-1.4-7.2-1.4c-2.9,0-5.6,0.5-8.1,1.4c-2.5,0.9-4.7,2.2-6.6,3.9c-1.9,1.7-3.3,3.8-4.4,6.2c-1.1,2.4-1.6,5.1-1.6,8 c0,3,0.5,5.6,1.6,8c1.1,2.4,2.5,4.5,4.4,6.2c1.9,1.7,4.1,3,6.6,3.9c2.5,0.9,5.2,1.4,8.1,1.4c3,0,5.9-0.6,8.7-1.9 c2.8-1.3,5.1-3.1,7-5.4l-8-5.9c-1,1.3-2.1,2.4-3.4,3.3c-1.3,0.8-2.9,1.3-4.8,1.3c-2.2,0-4.1-0.7-5.7-2c-1.5-1.3-2.5-3.1-3-5.2H277.4 z M250.7,44.1c0.1-0.9,0.3-1.8,0.7-2.6c0.4-0.8,0.9-1.6,1.6-2.2c0.7-0.6,1.5-1.2,2.5-1.6c1-0.4,2.1-0.6,3.4-0.6 c2.1,0,3.8,0.7,5.1,2.1c1.3,1.4,2,3,1.9,5H250.7z"/>
+	<path class="logo-st1" d="M52.6,38.9l2.6-9.2h4.6l1.8-6.6c0.6-2,1.3-4,2.2-5.8c0.8-1.8,2-3.4,3.4-4.8c1.4-1.4,3.2-2.5,5.3-3.3 c2.1-0.8,4.8-1.2,7.9-1.2c0.8,0,1.5,0,2.3,0.1c-0.7-2.9-3.3-5-6.3-5.1H11.9c-3.6,0-6.5,3-6.5,6.6V67l10.5-37.3h10.6l-1.4,4.9h0.2 c0.6-0.7,1.4-1.3,2.4-2c1-0.7,2-1.3,3.1-1.9c1.1-0.6,2.3-1,3.6-1.4c1.3-0.4,2.6-0.5,3.9-0.5c2.8,0,5.1,0.5,7.1,1.4 c2,0.9,3.5,2.3,4.7,4c1,1.5,1.6,3.3,1.9,5.4l0.8-0.6H52.6z"/>
+	<path class="logo-st2" d="M82.1,17.9c-0.5-0.1-1.1-0.2-1.8-0.2c-1.8,0-3.3,0.4-4.5,1.2c-1.1,0.8-2.1,2.4-2.8,4.9l-1.7,5.9h6.5l1.6,5.1 l-4.2,4.1h-6.5l-7.9,28H49.4l7.9-28h-4.4L52,39.5c0,0.2,0.1,0.5,0.1,0.7c0.2,2.3-0.1,4.9-0.9,7.7c-0.7,2.6-1.8,5.1-3.3,7.5 c-1.5,2.4-3.2,4.5-5.1,6.3c-2,1.8-4.2,3.3-6.6,4.4c-2.4,1.1-4.9,1.6-7.6,1.6c-2.4,0-4.5-0.4-6.4-1.1c-1.9-0.7-3.2-2-4-3.8h-0.2 l-5,17.7h63.3c3.6,0,6.6-2.9,6.6-6.6V18.2C82.6,18.1,82.3,18,82.1,17.9"/>
+	<path class="logo-st0" d="M277.6,68.5h0.8c0.4,0,0.6-0.1,0.7-0.2c0.1-0.1,0.2-0.2,0.2-0.4c0-0.1,0-0.2-0.1-0.3c-0.1-0.1-0.1-0.2-0.3-0.2 c-0.1,0-0.3-0.1-0.6-0.1h-0.7V68.5z M277,70.6v-3.8h1.3c0.5,0,0.8,0,1,0.1c0.2,0.1,0.4,0.2,0.5,0.4c0.1,0.2,0.2,0.4,0.2,0.6 c0,0.3-0.1,0.5-0.3,0.7c-0.2,0.2-0.5,0.3-0.8,0.3c0.1,0.1,0.2,0.1,0.3,0.2c0.2,0.2,0.3,0.4,0.6,0.8l0.5,0.7h-0.8l-0.3-0.6 c-0.3-0.5-0.5-0.8-0.6-0.9c-0.1-0.1-0.3-0.1-0.5-0.1h-0.4v1.6H277z M278.6,65.7c-0.5,0-1,0.1-1.5,0.4c-0.5,0.3-0.8,0.6-1.1,1.1 c-0.3,0.5-0.4,1-0.4,1.5c0,0.5,0.1,1,0.4,1.5c0.3,0.5,0.6,0.8,1.1,1.1c0.5,0.3,1,0.4,1.5,0.4c0.5,0,1-0.1,1.5-0.4 c0.5-0.3,0.8-0.6,1.1-1.1c0.3-0.5,0.4-1,0.4-1.5c0-0.5-0.1-1-0.4-1.5c-0.3-0.5-0.6-0.8-1.1-1.1C279.6,65.8,279.1,65.7,278.6,65.7z M278.6,65.1c0.6,0,1.2,0.2,1.8,0.5c0.6,0.3,1,0.7,1.3,1.3c0.3,0.6,0.5,1.2,0.5,1.8c0,0.6-0.2,1.2-0.5,1.8c-0.3,0.6-0.8,1-1.3,1.3 c-0.6,0.3-1.2,0.5-1.8,0.5c-0.6,0-1.2-0.2-1.8-0.5c-0.6-0.3-1-0.8-1.3-1.3c-0.3-0.6-0.5-1.2-0.5-1.8c0-0.6,0.2-1.2,0.5-1.8 c0.3-0.6,0.8-1,1.3-1.3C277.4,65.2,278,65.1,278.6,65.1z"/>
+</svg>
+				<span style="color:white;font-size:.5em;text-transform:uppercase;letter-spacing:1px;">Community Edition</span>
+			</a>
+		</div>
+		<div class="collapse navbar-collapse" id="pf-navbar">
+			<ul class="nav navbar-nav">
+							<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						System						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-fixed" role="menu"><li><a href="/system_advanced_admin.php" class="navlnk" >Advanced</a></li>
+<li><a href="/system_camanager.php" class="navlnk" >Certificates</a></li>
+<li><a href="/system.php" class="navlnk" >General Setup</a></li>
+<li><a href="/system_hasync.php" class="navlnk" >High Availability</a></li>
+<li><a href="/pkg_mgr_installed.php" class="navlnk" >Package Manager</a></li>
+<li><a href="/system_patches.php" class="navlnk" >Patches</a></li>
+<li><a href="/system_register.php" class="navlnk" >Register</a></li>
+<li><a href="/system_restapi_settings.php" class="navlnk" >REST API</a></li>
+<li><a href="/system_gateways.php" class="navlnk" >Routing</a></li>
+<li><a href="/wizard.php?xml=setup_wizard.xml" class="navlnk" >Setup Wizard</a></li>
+<li><a href="/pkg_edit.php?xml=sudo.xml" class="navlnk" >sudo</a></li>
+<li><a href="/pkg_mgr_install.php?id=firmware" class="navlnk" >Update</a></li>
+<li><a href="/system_usermanager.php" class="navlnk" >User Manager</a></li>
+<li><a href="/system_usermanager_passwordmg.php" class="navlnk" >User Password Manager</a></li>
+<li><a href="/index.php?logout" class="navlnk" usepost>Logout (guilherme)</a></li>
+</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						Interfaces						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-fixed" role="menu"><li><a href="/interfaces_assign.php" class="navlnk" >Assignments</a></li>
+ <li class="divider"></li><li><a href="/interfaces.php?if=wan" class="navlnk" >WAN</a></li>
+<li><a href="/interfaces.php?if=lan" class="navlnk" >LAN</a></li>
+<li><a href="/interfaces.php?if=opt1" class="navlnk" >IGC1</a></li>
+<li><a href="/interfaces.php?if=opt2" class="navlnk" >IGC2</a></li>
+<li><a href="/interfaces.php?if=opt3" class="navlnk" >TESTE_MESA</a></li>
+<li><a href="/interfaces.php?if=opt4" class="navlnk" >VLAN_CLIENTES</a></li>
+<li><a href="/interfaces.php?if=opt5" class="navlnk" >VLAN101</a></li>
+<li><a href="/interfaces.php?if=opt6" class="navlnk" >VLAN102</a></li>
+<li><a href="/interfaces.php?if=opt7" class="navlnk" >VLAN103</a></li>
+<li><a href="/interfaces.php?if=opt8" class="navlnk" >VLAN104</a></li>
+<li><a href="/interfaces.php?if=opt9" class="navlnk" >VLAN105</a></li>
+<li><a href="/interfaces.php?if=opt10" class="navlnk" >VLAN106</a></li>
+<li><a href="/interfaces.php?if=opt11" class="navlnk" >VLAN107</a></li>
+<li><a href="/interfaces.php?if=opt12" class="navlnk" >VLAN108</a></li>
+<li><a href="/interfaces.php?if=opt13" class="navlnk" >VLAN109</a></li>
+<li><a href="/interfaces.php?if=opt14" class="navlnk" >VLAN110</a></li>
+<li><a href="/interfaces.php?if=opt15" class="navlnk" >VLAN117</a></li>
+<li><a href="/interfaces.php?if=opt16" class="navlnk" >WAN2</a></li>
+<li><a href="/interfaces.php?if=opt17" class="navlnk" >IGC5</a></li>
+<li><a href="/interfaces.php?if=opt18" class="navlnk" >WIRE_GUARD</a></li>
+<li><a href="/interfaces.php?if=opt19" class="navlnk" >VLAN40_SAITO</a></li>
+<li><a href="/interfaces.php?if=opt20" class="navlnk" >VLAN50_SAITO</a></li>
+<li><a href="/interfaces.php?if=opt21" class="navlnk" >VLAN_HOTSPOT</a></li>
+<li><a href="/interfaces.php?if=opt22" class="navlnk" >VPN_MANAGER</a></li>
+<li><a href="/interfaces.php?if=opt23" class="navlnk" >VPN_REDIRECT</a></li>
+</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						Firewall						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-fixed" role="menu"><li><a href="/firewall_aliases.php" class="navlnk" >Aliases</a></li>
+<li><a href="/firewall_nat.php" class="navlnk" >NAT</a></li>
+<li><a href="/pfblockerng/pfblockerng_general.php" class="navlnk" >pfBlockerNG</a></li>
+<li><a href="/firewall_rules.php" class="navlnk" >Rules</a></li>
+<li><a href="/wmi_firewall_rules.php" class="navlnk" >Rules (ConexTI)</a></li>
+<li><a href="/firewall_schedule.php" class="navlnk" >Schedules</a></li>
+<li><a href="/firewall_shaper.php" class="navlnk" >Traffic Shaper</a></li>
+<li><a href="/firewall_virtual_ip.php" class="navlnk" >Virtual IPs</a></li>
+</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						Services						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-fixed" role="menu"><li><a href="/acme/acme_certificates.php" class="navlnk" >Acme Certificates</a></li>
+<li><a href="/services_acb_settings.php" class="navlnk" >Auto Config Backup</a></li>
+<li><a href="/pkg_edit.php?xml=bind.xml" class="navlnk" >BIND DNS Server</a></li>
+<li><a href="/services_captiveportal.php" class="navlnk" >Captive Portal</a></li>
+<li><a href="/pkg_edit.php?xml=conexti.xml" class="navlnk" >ConexTI license Manager</a></li>
+<li><a href="/packages/cron/cron.php" class="navlnk" >Cron</a></li>
+<li><a href="/services_dhcp_relay.php" class="navlnk" >DHCP Relay</a></li>
+<li><a href="/services_dhcp_settings.php" class="navlnk" >DHCP Server</a></li>
+<li><a href="/services_dhcpv6_relay.php" class="navlnk" >DHCPv6 Relay</a></li>
+<li><a href="/services_dhcpv6_settings.php" class="navlnk" >DHCPv6 Server</a></li>
+<li><a href="/services_dnsmasq.php" class="navlnk" >DNS Forwarder</a></li>
+<li><a href="/services_unbound.php" class="navlnk" >DNS Resolver</a></li>
+<li><a href="/services_dyndns.php" class="navlnk" >Dynamic DNS</a></li>
+<li><a href="/pkg_edit.php?xml=frr/frr_bfd.xml" class="navlnk" >FRR BFD</a></li>
+<li><a href="/pkg_edit.php?xml=frr/frr_bgp.xml" class="navlnk" >FRR BGP</a></li>
+<li><a href="/pkg_edit.php?xml=frr.xml" class="navlnk" >FRR Global/Zebra</a></li>
+<li><a href="/pkg_edit.php?xml=frr/frr_ospf.xml" class="navlnk" >FRR OSPF</a></li>
+<li><a href="/pkg_edit.php?xml=frr/frr_ospf6.xml" class="navlnk" >FRR OSPF6</a></li>
+<li><a href="/pkg_edit.php?xml=frr/frr_rip.xml" class="navlnk" >FRR RIP</a></li>
+<li><a href="/services_igmpproxy.php" class="navlnk" >IGMP Proxy</a></li>
+<li><a href="/pkg_edit.php?xml=ngrules.xml" class="navlnk" >NGRules Integration</a></li>
+<li><a href="/services_ntpd.php" class="navlnk" >NTP</a></li>
+<li><a href="/services_pppoe.php" class="navlnk" >PPPoE Server</a></li>
+<li><a href="/services_radvd.php" class="navlnk" >Router Advertisement</a></li>
+<li><a href="/services_servicewatchdog.php" class="navlnk" >Service Watchdog</a></li>
+<li><a href="/pkg.php?xml=shellcmd.xml" class="navlnk" >Shellcmd</a></li>
+<li><a href="/services_snmp.php" class="navlnk" >SNMP</a></li>
+<li><a href="/snort/snort_interfaces.php" class="navlnk" >Snort</a></li>
+<li><a href="/pkg_edit.php?xml=miniupnpd.xml" class="navlnk" >UPnP IGD &amp; PCP</a></li>
+<li><a href="/pkg_edit.php?xml=wmi.xml" class="navlnk" >UserAuth Integration</a></li>
+<li><a href="/services_wol.php" class="navlnk" >Wake-on-LAN</a></li>
+<li><a href="/pkg_edit.php?xml=zabbixagent.xml&amp;id=0" class="navlnk" >Zabbix Agent 7</a></li>
+<li><a href="/zid-logs_config.php" class="navlnk" >ZID Logs</a></li>
+<li><a href="/zid-proxy_settings.php" class="navlnk" >ZID Proxy</a></li>
+</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						VPN						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-fixed" role="menu"><li><a href="/vpn_ipsec.php" class="navlnk" >IPsec</a></li>
+<li><a href="/vpn_l2tp.php" class="navlnk" >L2TP</a></li>
+<li><a href="/vpn_openvpn_server.php" class="navlnk" >OpenVPN</a></li>
+<li><a href="/openvpn2fa.php" class="navlnk" >OpenVPN 2fA</a></li>
+<li><a href="/wg/vpn_wg_tunnels.php" class="navlnk" >WireGuard</a></li>
+</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						Status						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-fixed" role="menu"><li><a href="/status_captiveportal.php" class="navlnk" >Captive Portal</a></li>
+<li><a href="/status_carp.php" class="navlnk" >CARP (failover)</a></li>
+<li><a href="/wmi_filter_monitor.php" class="navlnk" >ConexTI filterlog</a></li>
+<li><a href="/index.php" class="navlnk" >Dashboard</a></li>
+<li><a href="/status_dhcp_leases.php" class="navlnk" >DHCP Leases</a></li>
+<li><a href="/status_dhcpv6_leases.php" class="navlnk" >DHCPv6 Leases</a></li>
+<li><a href="/status_unbound.php" class="navlnk" >DNS Resolver</a></li>
+<li><a href="/status_filter_reload.php?user=true" class="navlnk" >Filter Reload</a></li>
+<li><a href="/status_frr.php" class="navlnk" >FRR</a></li>
+<li><a href="/status_gateways.php" class="navlnk" >Gateways</a></li>
+<li><a href="/status_interfaces.php" class="navlnk" >Interfaces</a></li>
+<li><a href="/status_ipsec.php" class="navlnk" >IPsec</a></li>
+<li><a href="/status_monitoring.php" class="navlnk" >Monitoring</a></li>
+<li><a href="/pkg.php?xml=notes.xml" class="navlnk" >Notes</a></li>
+<li><a href="/status_ntpd.php" class="navlnk" >NTP</a></li>
+<li><a href="/status_openvpn.php" class="navlnk" >OpenVPN</a></li>
+<li><a href="/status_queues.php" class="navlnk" >Queues</a></li>
+<li><a href="/pkg_edit.php?xml=sarg.xml" class="navlnk" >Sarg Reports</a></li>
+<li><a href="/status_services.php" class="navlnk" >Services</a></li>
+<li><a href="/status_logs.php" class="navlnk" >System Logs</a></li>
+<li><a href="/status_graph.php" class="navlnk" >Traffic Graph</a></li>
+<li><a href="/status_upnp.php" class="navlnk" >UPnP IGD &amp; PCP</a></li>
+<li><a href="/wg/status_wireguard.php" class="navlnk" >WireGuard</a></li>
+</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						Diagnostics						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-fixed" role="menu"><li><a href="/diag_arp.php" class="navlnk" >ARP Table</a></li>
+<li><a href="/diag_authentication.php" class="navlnk" >Authentication</a></li>
+<li><a href="/diag_backup.php" class="navlnk" >Backup &amp; Restore</a></li>
+<li><a href="/diag_command.php" class="navlnk" >Command Prompt</a></li>
+<li><a href="/diag_dns.php" class="navlnk" >DNS Lookup</a></li>
+<li><a href="/diag_edit.php" class="navlnk" >Edit File</a></li>
+<li><a href="/diag_defaults.php" class="navlnk" >Factory Defaults</a></li>
+<li><a href="/diag_halt.php" class="navlnk" >Halt System</a></li>
+<li><a href="/pkg_edit.php?xml=iperf.xml" class="navlnk" >iperf</a></li>
+<li><a href="/diag_limiter_info.php" class="navlnk" >Limiter Info</a></li>
+<li><a href="/pkg_edit.php?xml=mtr-nox11.xml" class="navlnk" >mtr</a></li>
+<li><a href="/diag_ndp.php" class="navlnk" >NDP Table</a></li>
+<li><a href="/nmap_scan.php" class="navlnk" >Nmap</a></li>
+<li><a href="/diag_packet_capture.php" class="navlnk" >Packet Capture</a></li>
+<li><a href="/diag_pf_info.php" class="navlnk" >pfInfo</a></li>
+<li><a href="/diag_pftop.php" class="navlnk" >pfTop</a></li>
+<li><a href="/diag_ping.php" class="navlnk" >Ping</a></li>
+<li><a href="/diag_reboot.php" class="navlnk" >Reboot</a></li>
+<li><a href="/diag_routes.php" class="navlnk" >Routes</a></li>
+<li><a href="/diag_smart.php" class="navlnk" >S.M.A.R.T. Status</a></li>
+<li><a href="/diag_sockets.php" class="navlnk" >Sockets</a></li>
+<li><a href="/diag_dump_states.php" class="navlnk" >States</a></li>
+<li><a href="/diag_states_summary.php" class="navlnk" >States Summary</a></li>
+<li><a href="/diag_system_activity.php" class="navlnk" >System Activity</a></li>
+<li><a href="/diag_tables.php" class="navlnk" >Tables</a></li>
+<li><a href="/diag_testport.php" class="navlnk" >Test Port</a></li>
+<li><a href="/diag_traceroute.php" class="navlnk" >Traceroute</a></li>
+</ul>
+				</li>
+
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+						Help						<span class="caret"></span>
+					</a>
+					<ul class="dropdown-menu dropdown-menu-fixed" role="menu"><li><a href="/help.php?page=index.php" target="_blank" class="navlnk" >About this Page</a></li>
+<li><a href="https://redirects.netgate.com/issues" target="_blank" class="navlnk" >Bug Database</a></li>
+<li><a href="https://redirects.netgate.com/docs" target="_blank" class="navlnk" >Documentation</a></li>
+<li><a href="https://redirects.netgate.com/fbsdhandbook" target="_blank" class="navlnk" >FreeBSD Handbook</a></li>
+<li><a href="https://redirects.netgate.com/support" target="_blank" class="navlnk" >Paid Support</a></li>
+<li><a href="https://redirects.netgate.com/book" target="_blank" class="navlnk" >pfSense Book</a></li>
+<li><a href="https://redirects.netgate.com/upgrade" target="_blank" class="navlnk" >Upgrade to pfSense Plus</a></li>
+<li><a href="https://redirects.netgate.com/forum" target="_blank" class="navlnk" >User Forum</a></li>
+<li><a href="https://redirects.netgate.com/survey_1" target="_blank" class="navlnk" >User survey</a></li>
+</ul>
+				</li>
+
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+														<li class="dropdown">
+						<a href="#" data-toggle="modal" data-target="#notices" role="button" aria-expanded="false">
+							<i class="fa-solid fa-bell text-danger" title="Notices"></i>
+							<span class="badge bg-danger">50</span>
+						</a>
+					</li>
+									<li class="dropdown">
+						<a href="/index.php?logout" usepost>
+							<i class="fa-solid fa-right-from-bracket" title="Logout (guilherme@soulsolucoes.soul)"></i>
+						</a>
+					</li>
+			</ul>
+		</div>
+	</div>
+</nav>
+
+<div class="container fixed" style="max-width: 1755px;width: 100%">
+
+
+	<header class="header">
+
+<ol class="breadcrumb"><li>Status</li><li><a href="/index.php">Dashboard</a></li></ol>		<ul class="context-links">
+
+			<li>
+			<a href="#" title="Save dashboard layout" id="btnstore" class="invisible">
+				<i class="fa-solid fa-save icon-pointer"></i>
+			</a>
+		</li>
+	
+			<li>
+			<a onclick="$('#widget-available').toggle(360);" title="Available widgets">
+				<i class="fa-solid fa-plus icon-pointer"></i>
+			</a>
+		</li>
+	
+	
+	
+	
+	
+			<li>
+			<a href="/help.php?page=index.php" target="_blank" title="Help for items on this page">
+				<i class="fa-solid fa-question-circle"></i>
+			</a>
+		</li>
+			</ul>
+	</header>
+
+<div id="notices" class="modal fade" role="dialog">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+
+				<h3 class="modal-title" id="myModalLabel">Notices</h3>
+			</div>
+
+			<div class="modal-body">
+				<h4>General</h4>
+				<ul>
+					<li>
+						<b>
+						</b>
+						Package RESTAPI (restapi) does not exist in current pfSense version and it has been removed.						<i>@ 2025-12-22 22:16:53</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						Package reinstall process finished successfully						<i>@ 2025-12-22 22:16:55</i>
+					</li>
+				</ul>
+				<h4>Certificate Manager</h4>
+				<ul>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 98 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 448 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 98 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 448 days ago						<i>@ 2025-12-23 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 99 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 449 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 99 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 449 days ago						<i>@ 2025-12-24 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 100 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 450 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 100 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 450 days ago						<i>@ 2025-12-25 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 101 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 451 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 101 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 451 days ago						<i>@ 2025-12-26 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 102 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 452 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 102 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 452 days ago						<i>@ 2025-12-27 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 103 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 453 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 103 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 453 days ago						<i>@ 2025-12-28 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 104 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 454 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 104 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 454 days ago						<i>@ 2025-12-29 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 105 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 455 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 105 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 455 days ago						<i>@ 2025-12-30 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 106 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 456 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 106 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 456 days ago						<i>@ 2025-12-31 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 107 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 457 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 107 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 457 days ago						<i>@ 2026-01-01 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 108 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 458 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 108 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 458 days ago						<i>@ 2026-01-02 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 109 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 459 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 109 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 459 days ago						<i>@ 2026-01-03 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 110 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 460 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 110 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 460 days ago						<i>@ 2026-01-04 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 111 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 461 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 111 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 461 days ago						<i>@ 2026-01-05 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 112 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 462 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 112 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 462 days ago						<i>@ 2026-01-06 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 113 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 463 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 113 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 463 days ago						<i>@ 2026-01-07 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 114 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 464 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 114 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 464 days ago						<i>@ 2026-01-08 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 115 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 465 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 115 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 465 days ago						<i>@ 2026-01-09 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 116 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 466 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 116 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 466 days ago						<i>@ 2026-01-10 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 117 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 467 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 117 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 467 days ago						<i>@ 2026-01-11 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 118 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 468 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 118 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 468 days ago						<i>@ 2026-01-12 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 119 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 469 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 119 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 469 days ago						<i>@ 2026-01-13 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 120 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 470 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 120 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 470 days ago						<i>@ 2026-01-14 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 121 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 471 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 121 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 471 days ago						<i>@ 2026-01-15 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 122 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 472 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 122 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 472 days ago						<i>@ 2026-01-16 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 123 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 473 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 123 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 473 days ago						<i>@ 2026-01-17 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 124 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 474 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 124 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 474 days ago						<i>@ 2026-01-18 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 125 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 475 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 125 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 475 days ago						<i>@ 2026-01-19 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 126 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 476 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 126 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 476 days ago						<i>@ 2026-01-20 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 127 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 477 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 127 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 477 days ago						<i>@ 2026-01-21 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 128 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 478 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 128 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 478 days ago						<i>@ 2026-01-22 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 129 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 479 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 129 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 479 days ago						<i>@ 2026-01-23 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 130 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 480 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 130 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 480 days ago						<i>@ 2026-01-24 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 131 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 481 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 131 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 481 days ago						<i>@ 2026-01-25 03:01:00</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						The following CA/Certificate entries are expiring:<br/>Certificate Authority: Acmecert: O=(STAGING) Let&#039;s Encrypt, CN=(STAGING) Artificial Apricot R3, C=US (6218dba8bd51b): Expired 132 days ago<br/>Certificate Authority: Acmecert: O=(STAGING) Internet Security Research Group, CN=(STAGING) Pretend Pear X1, C=US (6218dba8bf56c): Expired 482 days ago<br/>Certificate Authority: Acmecert: O=Let&#039;s Encrypt, CN=R3, C=US (6218dbf6525c3): Expired 132 days ago<br/>Certificate Authority: Acmecert: O=Internet Security Research Group, CN=ISRG Root X1, C=US (6218dbf655400): Expired 482 days ago						<i>@ 2026-01-26 03:01:00</i>
+					</li>
+				</ul>
+				<h4>PHP {$errortype}s</h4>
+				<ul>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(781) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(781): eval()<br/>#2 /etc/inc/pkg-utils.inc(904): eval_once()<br/>#3 /etc/rc.packages(76): install_package_xml()<br/>#4 {main}<br/>  thrown						<i>@ 2026-01-23 19:13:12</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 07:19:44</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 07:27:03</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 07:54:48</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 08:04:43</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 08:08:17</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 09:06:14</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 09:39:34</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 09:41:10</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 09:59:52</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 11:22:46</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 11:27:30</i>
+					</li>
+					<li>
+						<b>
+						</b>
+						PHP ERROR: Type: 1, File: /usr/local/pkg/wpad.inc, Line: 145, Message: Uncaught TypeError: Cannot access offset of type string on string in /usr/local/pkg/wpad.inc:145<br/>Stack trace:<br/>#0 /etc/inc/pkg-utils.inc(715) : eval()&#039;d code(1): sync_package_wpad()<br/>#1 /etc/inc/pkg-utils.inc(715): eval()<br/>#2 /etc/rc.start_packages(66): sync_package()<br/>#3 {main}<br/>  thrown						<i>@ 2026-01-26 11:30:03</i>
+					</li>
+				</ul>
+			</div>
+
+			<div class="modal-footer">
+				<button type="button" class="btn btn-info" data-dismiss="modal"><i class="fa-solid fa-times icon-embed-btn"></i>Close</button>
+				<button type="button" id="clearallnotices" class="btn btn-primary"><i class="fa-regular fa-trash-can icon-embed-btn"></i>Mark All as Read</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+	events.push(function() {
+	    $('#clearallnotices').click(function() {
+			ajaxRequest = $.ajax({
+				url: "/index.php",
+				type: "post",
+				data: { closenotice: "all"},
+				success: function() {
+					window.location = window.location.href;
+				},
+				failure: function() {
+					alert("Error clearing notices!");
+				}
+			});
+		});
+	});
+//]]>
+</script>
+
+<div class="alert alert-warning clearfix" role="alert"><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button><div class="pull-left">pfSense has detected a crash report or programming bug. Click <a href="crash_reporter.php">here</a> for more information.</div></div>
+<div class="panel panel-default collapse out" id="widget-available">
+	<div class="panel-heading">
+		<h2 class="panel-title">Available Widgets			<span class="widget-heading-icon">
+				<a data-toggle="collapse" href="#widget-available_panel-body" id="widgets-available">
+					<i class="fa-solid fa-plus-circle"></i>
+				</a>
+			</span>
+		</h2>
+	</div>
+	<div id="widget-available_panel-body" class="panel-body collapse in">
+		<div class="content">
+			<div class="row">
+		<div class="col-sm-3"><a href="#" id="btnadd-bind"><i class="fa-solid fa-plus"></i> Bind</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-carp_status"><i class="fa-solid fa-plus"></i> CARP Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-dyn_dns_status"><i class="fa-solid fa-plus"></i> Dynamic DNS Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-log"><i class="fa-solid fa-plus"></i> Firewall Logs</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-gateways"><i class="fa-solid fa-plus"></i> Gateways</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-gmirror_status"><i class="fa-solid fa-plus"></i> GEOM Mirror Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-installed_packages"><i class="fa-solid fa-plus"></i> Installed Packages</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-interface_statistics"><i class="fa-solid fa-plus"></i> Interface Statistics</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-interfaces"><i class="fa-solid fa-plus"></i> Interfaces</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-ipsec"><i class="fa-solid fa-plus"></i> IPsec</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-netgate_services_and_support"><i class="fa-solid fa-plus"></i> Netgate Services And Support</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-openvpn"><i class="fa-solid fa-plus"></i> OpenVPN</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-picture"><i class="fa-solid fa-plus"></i> Picture</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-rss"><i class="fa-solid fa-plus"></i> RSS</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-smart_status"><i class="fa-solid fa-plus"></i> S.M.A.R.T. Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-services_status"><i class="fa-solid fa-plus"></i> Services Status</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-system_information"><i class="fa-solid fa-plus"></i> System Information</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-thermal_sensors"><i class="fa-solid fa-plus"></i> Thermal Sensors</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-userauth_top_blocked_categories"><i class="fa-solid fa-plus"></i> Userauth Top Blocked Categories</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-userauth_top_blocked_sites"><i class="fa-solid fa-plus"></i> Userauth Top Blocked Sites</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-userauth_top_permitted_categories"><i class="fa-solid fa-plus"></i> Userauth Top Permitted Categories</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-userauth_top_permitted_sites"><i class="fa-solid fa-plus"></i> Userauth Top Permitted Sites</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-userauth_top_users"><i class="fa-solid fa-plus"></i> Userauth Top Users</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-wake_on_lan"><i class="fa-solid fa-plus"></i> Wake-on-Lan</a></div>
+			<div class="col-sm-3"><a href="#" id="btnadd-wireguard"><i class="fa-solid fa-plus"></i> WireGuard</a></div>
+				</div>
+<p style="text-align:center">Other dashboard settings are available from the <a href="/system.php">General Setup</a> page.</p>
+		</div>
+	</div>
+</div>
+
+<div class="hidden" id="widgetSequence">
+	<form action="/" method="post" id="widgetSequence_form" name="widgetForm"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+		<input type="hidden" name="sequence" value="" />
+	</form>
+</div>
+
+
+<div class="row">
+<div class="col-md-4" id="widgets-col1">				<div class="panel panel-default" id="widget-system_information-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							System Information							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-system_information-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-system_information-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-system_information-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-system_information-0_panel-body" class="panel-body collapse in">
+						
+<div class="table-responsive">
+<table class="table table-hover table-striped table-condensed">
+	<tbody>
+		<tr>
+			<th>Name</th>
+			<td>soulsolucoes.soul</td>
+		</tr>
+		<tr>
+			<th>User</th>
+			<td>guilherme@10.254.254.2 (RADIUS/RADIUS-SOUL)</td>
+		<tr>
+			<th>System</th>
+			<td>
+pfSense<br />Netgate Device ID: <strong>29bbda77893441bc5876</strong>			</td>
+		</tr>
+		<tr>
+			<th>BIOS</th>
+			<td>
+							Vendor: <strong>Techvision, LLC.</strong><br/>
+										Version: <strong>5.19</strong><br/>
+										Release Date: <strong>Fri Apr 29 2022 </strong><br/>
+										Boot Method: <strong>UEFI</strong><br/>
+						</td>
+		</tr>
+		<tr>
+			<th>Version</th>
+			<td>
+				<strong>2.8.0-RELEASE</strong>
+				(amd64)
+				<br />
+				built on Wed May 21 20:12:00 -03 2025							<br />
+				<span title="FreeBSD soulsolucoes.soul 15.0-CURRENT FreeBSD 15.0-CURRENT #1 RELENG_2_8_0-n256081-401ec5f685b9: Wed May 21 23:53:51 UTC 2025     root@freebsd:/var/jenkins/workspace/pfSense-CE-snapshots-2_8_0-main/obj/amd64/0q9vjGjc/var/jenkins/workspace/pfSense-CE-snap">FreeBSD 15.0-CURRENT</span>
+										<br /><br />
+				<div id='updatestatus'>Obtaining update status <i class='fa-solid fa-rotate fa-spin'></i></div>
+						</td>
+		</tr>
+		<tr>
+			<th>CPU Type</th>
+			<td>Intel(R) Celeron(R) N5105 @ 2.00GHz				<div id="cpufreq">Current: 2795 MHz, Max: 1996 MHz</div>
+						<div id="cpucount">
+					4 CPUs					: 1 package(s) x 4 core(s)				</div>
+						<div id="cpucrypto">
+					AES-NI CPU Crypto: Yes (active)<br>
+QAT Crypto: No				</div>
+			</td>
+		</tr>
+				<tr>
+			<th>Hardware crypto</th>
+			<td>AES-CBC, AES-CCM, AES-GCM, AES-ICM, AES-XTS, SHA1, SHA256</td>
+		</tr>
+				<tr>
+			<th>Kernel PTI</th>
+			<td>Disabled</td>
+		</tr>
+		<tr>
+			<th>MDS Mitigation</th>
+			<td>Inactive</td>
+		</tr>
+		<tr>
+			<th>Uptime</th>
+			<td id="uptime">34 Days 13 Hours 45 Minutes 07 Seconds</td>
+		</tr>
+		<tr>
+			<th>Current date/time</th>
+			<td><div id="datetime">Mon Jan 26 11:57:50 -03 2026</div></td>
+		</tr>
+		<tr>
+			<th>DNS server(s)</th>
+			<td>
+				<ul style="margin-bottom:0px">
+				<li>127.0.0.1</li><li>::1</li><li>8.8.8.8</li><li>8.8.4.4</li><li>208.67.222.222</li>				</ul>
+			</td>
+		</tr>
+				<tr>
+			<th>Last config change</th>
+			<td>Mon Jan 26 11:29:57 -03 2026</td>
+		</tr>
+				<tr>
+			<th>
+State table size<span id="scaledstates"><br /><a href="#" data-toggle="tooltip" title="" data-placement="right" data-original-title="Adaptive state handling is enabled, state timeouts are reduced to 198%">Scaling 198%</a></span>			</th>
+			<td>
+				<!-- The color of the progress bar is changed to 'warning' to indicate adaptive state handling is in use -->
+				<div class="progress">
+					<div id="statePB" class="progress-bar progress-bar-striped progress-bar-warning" role="progressbar" aria-valuenow="1" aria-valuemin="0" aria-valuemax="100" style="width: 1%">
+					</div>
+				</div>
+
+				<span id="pfstateusagemeter">1%</span>&nbsp;<span id="pfstate">(9683/798000)</span>&nbsp;<span><a href="diag_dump_states.php">Show states</a></span>
+			</td>
+		</tr>
+		<tr>
+			<th>MBUF Usage</th>
+			<td>
+								<div class="progress">
+					<div id="mbufPB" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="8" aria-valuemin="0" aria-valuemax="100" style="width: 8%">
+					</div>
+				</div>
+				<span id="mbufusagemeter">8%</span>&nbsp;<span id="mbuf">(37180/494281)</span>
+			</td>
+		</tr>
+				<tr>
+			<th>Temperature</th>
+			<td>
+								<div class="progress">
+					<div id="tempPB" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="63.0" aria-valuemin="0" aria-valuemax="100" style="width: 63.0%">
+					</div>
+				</div>
+				<span id="tempmeter" data-units="C">63.0</span>&deg;C			</td>
+		</tr>
+				<tr>
+			<th>Load average</th>
+			<td>
+				<div id="load_average" title="Last 1, 5 and 15 minutes">0.25, 0.34, 0.45</div>
+			</td>
+		</tr>
+		<tr>
+			<th>CPU usage</th>
+			<td>
+				<div class="progress">
+					<div id="cpuPB" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+					</div>
+				</div>
+				<span id="cpumeter">Retrieving CPU data <i class="fa-solid fa-gear fa-spin"></i></span>
+			</td>
+		</tr>
+		<tr>
+			<th>Memory usage</th>
+			<td>
+				
+				<div class="progress" >
+					<div id="memUsagePB" class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100" style="width: 24%">
+					</div>
+				</div>
+				<span id="memusagemeter">24</span><span>% of 7986 MiB</span>
+			</td>
+		</tr>
+				<tr>
+			<th>SWAP usage</th>
+			<td>
+								<div class="progress">
+					<div class="progress-bar progress-bar-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+					</div>
+				</div>
+				<span>0% of 4095 MiB</span>
+			</td>
+		</tr>
+		
+
+	</tbody>
+</table>
+</div>
+<!-- close the body we're wrapped in and add a configuration-panel -->
+</div><div id="widget-system_information-0_panel-footer" class="panel-footer collapse">
+
+<form action="/widgets/widgets/system_information.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+    <div class="panel panel-default col-sm-10">
+		<div class="panel-body">
+			<input type="hidden" name="widgetkey" value="system_information-0">
+			<div class="table responsive">
+				<table class="table table-striped table-hover table-condensed">
+					<thead>
+						<tr>
+							<th>Item</th>
+							<th>Show</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Name</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="name" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>User</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="user" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>System</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="system" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>BIOS</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="bios" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Version</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="version" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>CPU Type</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="cpu_type" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Hardware Crypto</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="hwcrypto" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Kernel PTI</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="pti" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>MDS Mitigation</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="mds" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Uptime</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="uptime" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Current Date/Time</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="current_datetime" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>DNS Server(s)</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="dns_servers" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Last Config Change</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="last_config_change" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>State Table Size</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="state_table_size" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>MBUF Usage</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="mbuf_usage" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Temperature</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="temperature" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Load Average</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="load_average" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>CPU Usage</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="cpu_usage" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Memory Usage</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="memory_usage" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Swap Usage</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="swap_usage" type="checkbox" checked></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-6">
+			<button type="submit" class="btn btn-primary"><i class="fa-solid fa-save icon-embed-btn"></i>Save</button>
+			<button id="widget-system_information-0_showallnone" type="button" class="btn btn-info"><i class="fa-solid fa-undo icon-embed-btn"></i>All</button>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+
+var lastTotal = 0;
+var lastUsed = 0;
+
+// Collect some PHP values required by the states calculation
+var adaptiveend = 957600;
+var adaptivestart = 478800;
+var maxstates = 798000;
+var state_tt = "Adaptive state handling is enabled, state timeouts are reduced to ";
+
+function setProgress(barName, percent) {
+	$('[id="' + barName + '"]').css('width', percent + '%').attr('aria-valuenow', percent);
+}
+
+function stats(x) {
+	var values = x.split("|");
+	if ($.each(values,function(key,value) {
+		if (value == 'undefined' || value == null)
+			return true;
+		else
+			return false;
+	}))
+
+	if (lastTotal === 0) {
+		lastTotal = values[0];
+		lastUsed = values[1];
+	} else {
+		updateCPU(values[0], values[1]);
+	}
+
+	updateUptime(values[3]);
+	updateDateTime(values[6]);
+	updateMemory(values[2]);
+	updateState(values[4]);
+	updateTemp(values[5]);
+	updateCpuFreq(values[7]);
+	updateLoadAverage(values[8]);
+	updateMbuf(values[9]);
+	updateMbufMeter(values[10]);
+	updateStateMeter(values[11]);
+}
+
+function updateMemory(x) {
+	if ($('#memusagemeter')) {
+		$('[id="memusagemeter"]').html(x);
+	}
+	if ($('#memUsagePB')) {
+		setProgress('memUsagePB', parseInt(x));
+	}
+}
+
+function updateMbuf(x) {
+	if ($('#mbuf')) {
+		$('[id="mbuf"]').html('(' + x + ')');
+	}
+}
+
+function updateMbufMeter(x) {
+	if ($('#mbufusagemeter')) {
+		$('[id="mbufusagemeter"]').html(x + '%');
+	}
+	if ($('#mbufPB')) {
+		setProgress('mbufPB', parseInt(x));
+	}
+}
+
+function updateCPU(total, used) {
+	if ((lastTotal <= total) && (lastUsed <= used)) { // Just in case it wraps
+		// Calculate the total ticks and the used ticks since the last time it was checked
+		var d_total = total - lastTotal;
+		var d_used = used - lastUsed;
+
+		// Convert to percent
+		var x = Math.floor(((d_total - d_used)/d_total) * 100);
+
+		if ($('#cpumeter')) {
+			$('[id="cpumeter"]').html(x + '%');
+		}
+
+		if ($('#cpuPB')) {
+			setProgress('cpuPB', parseInt(x));
+		}
+
+		/* Load CPU Graph widget if enabled */
+		if (widgetActive('cpu_graphs')) {
+			GraphValue(graph[0], x);
+		}
+	}
+
+	// Update the saved "last" values
+	lastTotal = total;
+	lastUsed = used;
+}
+
+function updateTemp(x) {
+	$("#tempmeter").html(function() {
+		return this.dataset.units === "F" ? parseInt(x * 1.8 + 32, 10) : x;
+	});
+	setProgress('tempPB', parseInt(x));
+}
+
+function updateDateTime(x) {
+	if ($('#datetime')) {
+		$('[id="datetime"]').html(x);
+	}
+}
+
+function updateUptime(x) {
+	if ($('#uptime')) {
+		$('[id="uptime"]').html(x);
+	}
+}
+
+function updateState(x) {
+	if ($('#pfstate')) {
+		$('[id="pfstate"]').html('(' + x + ')');
+
+		// get numeric part of string before the '/'
+		x = x.split('/')[0]
+
+		if (x > adaptivestart) {
+			var scalingfactor = Math.round((adaptiveend - x) / (adaptiveend - adaptivestart) * 100);
+			var disphtml = 	'<br /><a href="#" data-toggle="tooltip" title="" data-placement="right" data-original-title="' +
+				state_tt +  scalingfactor + '%">' +
+				'Scaling ' + scalingfactor + '%</a>';
+
+			// Only update the display if the tooltip is not visible. Otherwise the tip will go away
+			if ($('.tooltip').length == 0) {
+				$('#scaledstates').html(disphtml);
+			}
+
+			// Renable the tooltip
+			$(function () {
+				$('[data-toggle="tooltip"]').tooltip()
+			})
+
+			$('#statePB').addClass('progress-bar-warning');
+		} else {
+			$('#scaledstates').html('');
+			$('#statePB').removeClass('progress-bar-warning');
+		}
+	}
+}
+
+function updateStateMeter(x) {
+	if ($('#pfstateusagemeter')) {
+		$('[id="pfstateusagemeter"]').html(x + '%');
+	}
+	if ($('#statePB')) {
+		setProgress('statePB', parseInt(x));
+	}
+}
+
+function updateCpuFreq(x) {
+	if ($('#cpufreq')) {
+		$('[id="cpufreq"]').html(x);
+	}
+}
+
+function updateLoadAverage(x) {
+	if ($('#load_average')) {
+		$('[id="load_average"]').html(x);
+	}
+}
+
+function widgetActive(x) {
+	var widget = $('#' + x + '-container');
+	if ((widget != null) && (widget.css('display') != null) && (widget.css('display') != "none")) {
+		return true;
+	} else {
+		return false;
+	}
+}
+
+
+
+events.push(function() {
+
+	$('#scaledstates').html('');
+
+	// Enable tooltips
+	$(function () {
+		$('[data-toggle="tooltip"]').tooltip()
+	})
+
+	// --------------------- Centralized widget refresh system ------------------------------
+
+	// Callback function called by refresh system when data is retrieved
+	function meters_callback(s) {
+		stats(s);
+	}
+
+	// POST data to send via AJAX
+	var postdata = {
+		ajax: "ajax",
+		skipitems: [""]	 };
+
+	// Create an object defining the widget refresh AJAX call
+	var metersObject = new Object();
+	metersObject.name = "Meters";
+	metersObject.url = "/getstats.php";
+	metersObject.callback = meters_callback;
+	metersObject.parms = postdata;
+	metersObject.freq = 5;
+
+	// Register the AJAX object
+	register_ajax(metersObject);
+
+
+	// Callback function called by refresh system when data is retrieved
+	function version_callback(s) {
+		$('[id^=widget-system_information] #updatestatus').html(s);
+
+		// The click handler has to be attached after the div is updated
+		$('#updver').click(function() {
+			updver_ajax();
+		});
+	}
+
+	// POST data to send via AJAX
+	var postdata = {
+		ajax: "ajax",
+		getupdatestatus: "1",
+		skipitems: [""]	 };
+
+	// Create an object defining the widget refresh AJAX call
+	var versionObject = new Object();
+	versionObject.name = "Version";
+	versionObject.url = "/widgets/widgets/system_information.widget.php";
+	versionObject.callback = version_callback;
+	versionObject.parms = postdata;
+	versionObject.freq = 100;
+
+	//Register the AJAX object
+	register_ajax(versionObject);
+	// ---------------------------------------------------------------------------------------------------
+
+	set_widget_checkbox_events("#widget-system_information-0_panel-footer [id^=show]", "widget-system_information-0_showallnone");
+
+	// AJAX function to update the version display with non-cached data
+	function updver_ajax() {
+
+		// Display the "updating" message
+		$('[id^=widget-system_information] #updatestatus').html("Obtaining update status <i class='fa-solid fa-rotate fa-spin'></i>"); // Obtaining update status <i class='fa-solid fa-rotate fa-spin'></i>");
+
+		$.ajax({
+			type: 'POST',
+			url: "/widgets/widgets/system_information.widget.php",
+			dataType: 'html',
+			data: {
+				ajax: "ajax",
+				getupdatestatus: "2",
+				skipitems: [""]			},
+
+			success: function(data){
+				// Display the returned data
+				$('[id^=widget-system_information] #updatestatus').html(data);
+
+				// Re-attach the click handler (The binding was lost when the <div> content was replaced)
+				$('#updver').click(function() {
+					updver_ajax();
+				});
+			},
+
+			error: function(e){
+			}
+		});
+	}
+});
+//]]>
+</script>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-disks-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							Disks							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-disks-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-disks-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-disks-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-disks-0_panel-body" class="panel-body collapse in">
+						
+	<div class="table-responsive">
+		<table id="disks-0-table" class="table table-striped table-hover table-condensed">
+			<thead><th>Mount</th><th>Used</th><th>Size</th><th style="width:50%">Usage</th></thead><tbody><tr class="treegrid-root"><td>/</td><td>65G</td><td>226G</td><td><div class="progress"><div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="31" aria-valuemin="0" aria-valuemax="100" style="width:31%"></div></div><span>31% of 226G (ufs)</span></td></tr><tr class="treegrid-root-var-db-cp-ip treegrid-parent-root"><td>/var/db/.cp/ip</td><td>4.0K</td><td>512M</td><td><div class="progress"><div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div></div><span>0% of 512M (tmpfs)</span></td></tr><tr class="treegrid-root-var-db-cp-l treegrid-parent-root"><td>/var/db/.cp/l</td><td>20K</td><td>256M</td><td><div class="progress"><div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width:0%"></div></div><span>0% of 256M (tmpfs)</span></td></tr><tr class="treegrid-root-var-run treegrid-parent-root"><td>/var/run</td><td>356K</td><td>4.0M</td><td><div class="progress"><div class="progress-bar progress-bar-success progress-bar-striped" aria-valuenow="9" aria-valuemin="0" aria-valuemax="100" style="width:9%"></div></div><span>9% of 4.0M (tmpfs)</span></td></tr></tbody>		</table>
+	</div>
+</div>
+
+<div id="widget-disks-0_panel-footer" class="panel-footer collapse">
+
+	<form action="/widgets/widgets/disks.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+		<input type="hidden" name="widgetkey" value="disks-0" />
+		<input type="hidden" name="save" value="save" />
+		<div class="panel panel-default col-sm-12">
+			<div class="panel-body">
+				<input type="hidden" name="widgetkey" value="disks-0">
+				<div class="table responsive">
+					<table class="table table-striped table-hover table-condensed">
+						<thead>
+							<tr>
+								<th>Mount</th>
+								<th>
+									<span><i class="fa-solid fa-thumbtack" style="vertical-align:middle;"></i></span>
+									Pin								</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>/var/db/.cp/ip</td>
+								<td class="col-sm-2"><input id="disks-0_disk_filter[]" name ="disks-0_disk_filter[]" value="/var/db/.cp/ip" type="checkbox" ></td>
+							</tr>
+							<tr>
+								<td>/var/db/.cp/l</td>
+								<td class="col-sm-2"><input id="disks-0_disk_filter[]" name ="disks-0_disk_filter[]" value="/var/db/.cp/l" type="checkbox" ></td>
+							</tr>
+							<tr>
+								<td>/var/run</td>
+								<td class="col-sm-2"><input id="disks-0_disk_filter[]" name ="disks-0_disk_filter[]" value="/var/run" type="checkbox" ></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="disks-0_autoshow_threshold" class="col-sm-4 control-label">Auto Show Threshold</label>
+			<div class="col-sm-8">
+				<input type="number" id="disks-0_autoshow_threshold" name="disks-0_autoshow_threshold" value="75" placeholder="75" min="0" max="100" class="form-control" />
+				<span class="help-block">
+					Automatically show mounts when utilization exceeds the specified threshold (%).					<br />
+					<span class="text-danger">Note:</span>
+					The default is 75% (0% to disable).				</span>
+			</div>
+		</div>
+
+		<nav class="action-buttons">
+			<button type="submit" class="btn btn-primary">
+				<i class="fa-solid fa-save icon-embed-btn"></i>
+				Save			</button>
+			<button id="widget-disks-0_showallnone" type="button" class="btn btn-info">
+				<i class="fa-solid fa-undo icon-embed-btn"></i>
+				All			</button>
+		</nav>
+	</form>
+
+	<script type="text/javascript">
+	//<![CDATA[
+	events.push(function() {
+		// Callback function called by refresh system when data is retrieved
+		function disks_callback(s) {
+			var tree = $("#disks-0-table");
+
+			tree.removeData();
+
+			tree.html(s);
+
+			initTreegrid(true);
+		}
+
+		// POST data to send via AJAX
+		var postdata = {
+			ajax: "ajax",
+			widgetkey: "disks-0"		};
+
+		// Create an object defining the widget refresh AJAX call
+		var disksObject = new Object();
+		disksObject.name = "disks";
+		disksObject.url = "/widgets/widgets/disks.widget.php";
+		disksObject.callback = disks_callback;
+		disksObject.parms = postdata;
+		disksObject.freq = 30;
+
+		// Register the AJAX object
+		register_ajax(disksObject);
+
+		function initTreegrid(isAjax) {
+			var tree = $("#disks-0-table");
+
+			if (!isAjax) {
+				tree.removeData();
+			}
+
+			tree.treegrid({
+				expanderExpandedClass: 'fa-solid fa-chevron-down',
+				expanderCollapsedClass: 'fa-solid fa-chevron-right',
+				initialState: 'collapsed',
+				saveState: true
+			});
+		}
+
+		initTreegrid(false);
+
+		set_widget_checkbox_events("#widget-disks-0_panel-footer [id^=disks-0_disk_filter]", "widget-disks-0_showallnone");
+	});
+	//]]>
+	</script>
+					</div>
+				</div>
+				</div><div class="col-md-4" id="widgets-col2">				<div class="panel panel-default" id="widget-captive_portal_status-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="status_captiveportal.php"> Captive Portal Status</a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-captive_portal_status-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-captive_portal_status-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-captive_portal_status-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-captive_portal_status-0_panel-body" class="panel-body collapse in">
+						<div class="table-responsive">
+	<table class="table table-condensed sortable-theme-bootstrap" data-sortable>
+		<thead>
+		<tr>
+			<th>IP address</th>
+			<th>MAC address</th>
+			<th>Username</th>
+			<th>Session start</th>
+			<th>Last activity</th>
+			<th>&nbsp;</th>
+		</tr>
+		</thead>
+		<tbody>
+			</tbody>
+	</table>
+</div>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-openvpn-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="status_openvpn.php"> OpenVPN</a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-openvpn-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-openvpn-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-openvpn-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-openvpn-0_panel-body" class="panel-body collapse in">
+						
+<div id="openvpn-0-openvpn-mainpanel" class="content">
+
+<div class="widget panel panel-default"><div class="panel-heading"><h2 class="panel-title">OpenVPN Remote Access UDP4:1194 (1)</h2></div><div class="table-responsive"><table class="table table-striped table-hover table-condensed sortable-theme-bootstrap" data-sortable><thead><tr><th>Name/Time</th><th>Real/Virtual IP</th><th></th></tr></thead><tbody><tr name="r:server1:170.83.203.93:24274" class=" listMRodd"><td>guilherme</td><td>170.83.203.93:24274</td><td><i class="fa-solid fa-times" onclick="killClient('server1', '170.83.203.93:24274', '');" style="cursor:pointer;" name="i:server1:170.83.203.93:24274" title="Kill client connection from 170.83.203.93:24274"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server1', '170.83.203.93:24274', '0');" style="cursor:pointer;" name="i:server1:170.83.203.93:24274" title="Halt client connection from 170.83.203.93:24274"></i></td></tr><tr name="r:server1:170.83.203.93:24274" class=" listMRodd"><td>2026-01-24 18:42:10</td><td>10.254.254.2</td><td></td></tr></tbody></table></div></div><div class="widget panel panel-default"><div class="panel-heading"><h2 class="panel-title">OpenVPN Remote Access - Not Full UDP4:1196 (0)</h2></div><div class="table-responsive"><table class="table table-striped table-hover table-condensed sortable-theme-bootstrap" data-sortable><thead><tr><th>Name/Time</th><th>Real/Virtual IP</th><th></th></tr></thead><tbody></tbody></table></div></div><div class="widget panel panel-default"><div class="panel-heading"><h2 class="panel-title">VPN Remote Redirect Temp UDP4:11010 (9)</h2></div><div class="table-responsive"><table class="table table-striped table-hover table-condensed sortable-theme-bootstrap" data-sortable><thead><tr><th>Name/Time</th><th>Real/Virtual IP</th><th></th></tr></thead><tbody><tr name="r:server7:177.39.21.138:64614" class=" listMRodd"><td>CA-TEMP-CURY</td><td>177.39.21.138:64614</td><td><i class="fa-solid fa-times" onclick="killClient('server7', '177.39.21.138:64614', '');" style="cursor:pointer;" name="i:server7:177.39.21.138:64614" title="Kill client connection from 177.39.21.138:64614"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server7', '177.39.21.138:64614', '7');" style="cursor:pointer;" name="i:server7:177.39.21.138:64614" title="Halt client connection from 177.39.21.138:64614"></i></td></tr><tr name="r:server7:177.39.21.138:64614" class=" listMRodd"><td>2026-01-22 10:30:36</td><td>10.210.210.5</td><td></td></tr><tr name="r:server7:177.39.21.122:4327" class=" listMReven"><td>USER-TEMP</td><td>177.39.21.122:4327</td><td><i class="fa-solid fa-times" onclick="killClient('server7', '177.39.21.122:4327', '');" style="cursor:pointer;" name="i:server7:177.39.21.122:4327" title="Kill client connection from 177.39.21.122:4327"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server7', '177.39.21.122:4327', '4');" style="cursor:pointer;" name="i:server7:177.39.21.122:4327" title="Halt client connection from 177.39.21.122:4327"></i></td></tr><tr name="r:server7:177.39.21.122:4327" class=" listMReven"><td>2026-01-22 10:30:35</td><td>10.210.210.2</td><td></td></tr><tr name="r:server7:177.136.202.40:44796" class=" listMRodd"><td>CA-TEMP-SALADAO</td><td>177.136.202.40:44796</td><td><i class="fa-solid fa-times" onclick="killClient('server7', '177.136.202.40:44796', '');" style="cursor:pointer;" name="i:server7:177.136.202.40:44796" title="Kill client connection from 177.136.202.40:44796"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server7', '177.136.202.40:44796', '1');" style="cursor:pointer;" name="i:server7:177.136.202.40:44796" title="Halt client connection from 177.136.202.40:44796"></i></td></tr><tr name="r:server7:177.136.202.40:44796" class=" listMRodd"><td>2026-01-22 10:27:41</td><td>10.210.210.4</td><td></td></tr><tr name="r:server7:177.39.20.125:63322" class=" listMReven"><td>CA-TEMP-BAND-BRG</td><td>177.39.20.125:63322</td><td><i class="fa-solid fa-times" onclick="killClient('server7', '177.39.20.125:63322', '');" style="cursor:pointer;" name="i:server7:177.39.20.125:63322" title="Kill client connection from 177.39.20.125:63322"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server7', '177.39.20.125:63322', '8');" style="cursor:pointer;" name="i:server7:177.39.20.125:63322" title="Halt client connection from 177.39.20.125:63322"></i></td></tr><tr name="r:server7:177.39.20.125:63322" class=" listMReven"><td>2026-01-22 10:32:38</td><td>10.210.210.3</td><td></td></tr><tr name="r:server7:177.39.21.135:43247" class=" listMRodd"><td>CA-TEMP-PALACIO-PAES</td><td>177.39.21.135:43247</td><td><i class="fa-solid fa-times" onclick="killClient('server7', '177.39.21.135:43247', '');" style="cursor:pointer;" name="i:server7:177.39.21.135:43247" title="Kill client connection from 177.39.21.135:43247"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server7', '177.39.21.135:43247', '5');" style="cursor:pointer;" name="i:server7:177.39.21.135:43247" title="Halt client connection from 177.39.21.135:43247"></i></td></tr><tr name="r:server7:177.39.21.135:43247" class=" listMRodd"><td>2026-01-22 10:30:35</td><td>10.210.210.10</td><td></td></tr><tr name="r:server7:177.39.20.250:41099" class=" listMReven"><td>CA-TEMP-DOURADO</td><td>177.39.20.250:41099</td><td><i class="fa-solid fa-times" onclick="killClient('server7', '177.39.20.250:41099', '');" style="cursor:pointer;" name="i:server7:177.39.20.250:41099" title="Kill client connection from 177.39.20.250:41099"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server7', '177.39.20.250:41099', '3');" style="cursor:pointer;" name="i:server7:177.39.20.250:41099" title="Halt client connection from 177.39.20.250:41099"></i></td></tr><tr name="r:server7:177.39.20.250:41099" class=" listMReven"><td>2026-01-22 10:27:42</td><td>10.210.210.9</td><td></td></tr><tr name="r:server7:177.39.21.34:56885" class=" listMRodd"><td>CA-TEMP-LEMON</td><td>177.39.21.34:56885</td><td><i class="fa-solid fa-times" onclick="killClient('server7', '177.39.21.34:56885', '');" style="cursor:pointer;" name="i:server7:177.39.21.34:56885" title="Kill client connection from 177.39.21.34:56885"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server7', '177.39.21.34:56885', '6');" style="cursor:pointer;" name="i:server7:177.39.21.34:56885" title="Halt client connection from 177.39.21.34:56885"></i></td></tr><tr name="r:server7:177.39.21.34:56885" class=" listMRodd"><td>2026-01-22 10:30:35</td><td>10.210.210.6</td><td></td></tr><tr name="r:server7:177.39.21.77:11417" class=" listMReven"><td>CA-TEMP-COUTO</td><td>177.39.21.77:11417</td><td><i class="fa-solid fa-times" onclick="killClient('server7', '177.39.21.77:11417', '');" style="cursor:pointer;" name="i:server7:177.39.21.77:11417" title="Kill client connection from 177.39.21.77:11417"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server7', '177.39.21.77:11417', '2');" style="cursor:pointer;" name="i:server7:177.39.21.77:11417" title="Halt client connection from 177.39.21.77:11417"></i></td></tr><tr name="r:server7:177.39.21.77:11417" class=" listMReven"><td>2026-01-22 10:27:42</td><td>10.210.210.11</td><td></td></tr><tr name="r:server7:177.39.20.184:34023" class=" listMRodd"><td>CA-TEMP-SACOI</td><td>177.39.20.184:34023</td><td><i class="fa-solid fa-times" onclick="killClient('server7', '177.39.20.184:34023', '');" style="cursor:pointer;" name="i:server7:177.39.20.184:34023" title="Kill client connection from 177.39.20.184:34023"></i>&nbsp;<i class="fa-solid fa-times-circle text-danger" onclick="killClient('server7', '177.39.20.184:34023', '0');" style="cursor:pointer;" name="i:server7:177.39.20.184:34023" title="Halt client connection from 177.39.20.184:34023"></i></td></tr><tr name="r:server7:177.39.20.184:34023" class=" listMRodd"><td>2026-01-22 10:27:41</td><td>10.210.210.7</td><td></td></tr></tbody></table></div></div><div class="widget panel panel-default"><div class="panel-heading"><h2 class="panel-title">Client Instance Statistics</h2></div><div class="table-responsive"><table class="table table-striped table-hover table-condensed sortable-theme-bootstrap" data-sortable><thead><tr><th>Name/Time</th><th>Remote/Virtual IP</th><th></th></tr></thead><tbody><tr name="r::177.39.16.140"><td>VPN Manager UDP4</td><td>177.39.16.140</td><td><i class="fa-solid fa-arrow-up text-success"></i></td></tr><tr name="r::177.39.16.140"><td>Thu Jan 22 10:27:34 2026</td><td>10.234.0.21</td><td></td></tr><tr name="r::177.39.16.140"><td>VPN S2S Soul-Cloud UDP4</td><td>177.39.16.140</td><td><i class="fa-solid fa-arrow-up text-success"></i></td></tr><tr name="r::177.39.16.140"><td>Thu Jan 22 10:27:34 2026</td><td>10.237.0.2</td><td></td></tr><tr name="r::177.39.16.141"><td>VPN S2S VPC5 UDP4</td><td>177.39.16.141</td><td><i class="fa-solid fa-arrow-up text-success"></i></td></tr><tr name="r::177.39.16.141"><td>Tue Dec 30 23:22:13 2025</td><td>10.235.8.2</td><td></td></tr></tbody></table></div></div></div>
+<!-- close the body we're wrapped in and add a configuration-panel -->
+</div><div id="widget-openvpn-0_panel-footer" class="panel-footer collapse">
+
+<form action="/widgets/widgets/openvpn.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+	<div class="form-group">  <label for="descr" class="col-sm-4 control-label">Widget title</label>  <div class="col-sm-4">    <input type="text" name="descr" id="descr" value="OpenVPN" class="form-control" />  </div></div>    <div class="panel panel-default col-sm-10">
+		<div class="panel-body">
+			<input type="hidden" name="widgetkey" value="openvpn-0">
+			<div class="table responsive">
+				<table class="table table-striped table-hover table-condensed">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Show</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>OpenVPN Remote Access UDP4:1194</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="1" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>OpenVPN Remote Access - Not Full UDP4:1196</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="6" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VPN Remote Redirect Temp UDP4:11010</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="7" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VPN Manager UDP4</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="2" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VPN S2S Soul-Cloud UDP4</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="3" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VPN S2S VPC5 UDP4</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="4" type="checkbox" checked></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-6">
+			<button type="submit" class="btn btn-primary"><i class="fa-solid fa-save icon-embed-btn"></i>Save</button>
+			<button id="widget-openvpn-0_showallnone" type="button" class="btn btn-info"><i class="fa-solid fa-undo icon-embed-btn"></i>All</button>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+	function killClient(mport, remipp, client_id) {
+		if (client_id === '') {
+			$('i[name="i:' + mport + ":" + remipp + '"]').first().removeClass().addClass('fa-solid fa-cog fa-spin text-danger');
+		} else {
+			$('i[name="i:' + mport + ":" + remipp + '"]').last().removeClass().addClass('fa-solid fa-cog fa-spin text-danger');
+		}
+
+		$.ajax(
+			"widgets/widgets/openvpn.widget.php",
+			{
+				type: "post",
+				data: {
+					action:           "kill",
+					port:             mport,
+					remipp:           remipp,
+					client_id:        client_id
+				},
+				complete: killComplete
+			}
+		);
+	}
+
+	function killComplete(req) {
+		var values = req.responseText.split("|");
+		if (values[3] != "0") {
+	//		alert('An error occurred.' + ' (' + values[3] + ')');
+			return;
+		}
+
+		$('tr[name="r:' + values[1] + ":" + values[2] + '"]').each(
+			function(index,row) { $(row).fadeOut(1000); }
+		);
+	}
+
+	events.push(function(){
+		set_widget_checkbox_events("#widget-openvpn-0_panel-footer [id^=show]", "widget-openvpn-0_showallnone");
+
+		// --------------------- Centralized widget refresh system ------------------------------
+
+		// Callback function called by refresh system when data is retrieved
+		function openvpn_callback(s) {
+			$("#openvpn-0-openvpn-mainpanel").html(s);
+		}
+
+		// POST data to send via AJAX
+		var postdata = {
+			ajax: "ajax",
+			widgetkey: "openvpn-0"		 };
+
+		// Create an object defining the widget refresh AJAX call
+		var openvpnObject = new Object();
+		openvpnObject.name = "OpenVPN";
+		openvpnObject.url = "/widgets/widgets/openvpn.widget.php";
+		openvpnObject.callback = openvpn_callback;
+		openvpnObject.parms = postdata;
+		openvpnObject.freq = 20;
+
+		// Register the AJAX object
+		register_ajax(openvpnObject);
+
+		// ---------------------------------------------------------------------------------------------------
+	});
+//]]>
+</script>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-thermal_sensors-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							Thermal Sensors							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-thermal_sensors-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-thermal_sensors-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-thermal_sensors-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-thermal_sensors-0_panel-body" class="panel-body collapse in">
+						
+<script type="text/javascript">
+//<![CDATA[
+	//start showing temp data
+	//NOTE: the refresh interval will be reset to a proper value in showThermalSensorsData() (thermal_sensors.js).
+	events.push(function(){
+		var tsParams = {
+			zoneWarningTempThreshold:60,
+			zoneCriticalTempThreshold:70,
+			coreWarningTempThreshold:60,
+			coreCriticalTempThreshold:70,
+			pchWarningTempThreshold:60,
+			pchCriticalTempThreshold:70,
+			showRawOutput:false,
+			showFullSensorName:false,
+			showFahrenheit:false
+		};
+
+		$("#thermal_sensors_widget_show_fahrenheit").on("change", function(e) {
+			if (this.checked) {
+				$(".thermal_sensors_widget_unit").html('&deg;F');
+				$(".thermal_sensors_widget_range").html('(1&ndash;212)');
+				$("#thermal_sensors_widget_zone_warning_threshold").val(function(){return getFahrenheitValue(this.value);});
+				$("#thermal_sensors_widget_zone_critical_threshold").val(function(){return getFahrenheitValue(this.value);});
+				$("#thermal_sensors_widget_core_warning_threshold").val(function(){return getFahrenheitValue(this.value);});
+				$("#thermal_sensors_widget_core_critical_threshold").val(function(){return getFahrenheitValue(this.value);});
+				$("#thermal_sensors_widget_pch_warning_threshold").val(function(){return getFahrenheitValue(this.value);});
+				$("#thermal_sensors_widget_pch_critical_threshold").val(function(){return getFahrenheitValue(this.value);});
+			} else {
+				$(".thermal_sensors_widget_unit").html('&deg;C');
+				$(".thermal_sensors_widget_range").html('(1&ndash;100)');
+				$("#thermal_sensors_widget_zone_warning_threshold").val(function(){return getCelsiusValue(this.value);});
+				$("#thermal_sensors_widget_zone_critical_threshold").val(function(){return getCelsiusValue(this.value);});
+				$("#thermal_sensors_widget_core_warning_threshold").val(function(){return getCelsiusValue(this.value);});
+				$("#thermal_sensors_widget_core_critical_threshold").val(function(){return getCelsiusValue(this.value);});
+				$("#thermal_sensors_widget_pch_warning_threshold").val(function(){return getCelsiusValue(this.value);});
+				$("#thermal_sensors_widget_pch_critical_threshold").val(function(){return getCelsiusValue(this.value);});
+			}
+		});
+		// --------------------- Centralized widget refresh system ------------------------------
+
+		// Callback function called by refresh system when data is retrieved
+		function ts_callback(s) {
+			var thermalSensorsData = s || "";
+			buildThermalSensorsData(thermalSensorsData, "thermal_sensors-0", tsParams, true);
+		}
+
+		// POST data to send via AJAX
+		var postdata = {
+			ajax: "ajax",
+			getThermalSensorsData : "1"
+		 };
+
+		// Create an object defining the widget refresh AJAX call
+		var tsObject = new Object();
+		tsObject.name = "thermal-sensors";
+		tsObject.url = "/widgets/widgets/thermal_sensors.widget.php";
+		tsObject.callback = ts_callback;
+		tsObject.parms = postdata;
+		tsObject.freq = 5;
+
+		// Register the AJAX object
+		register_ajax(tsObject);
+
+		// ---------------------------------------------------------------------------------------------------
+	});
+//]]>
+</script>
+<div style="padding: 5px">
+	<div id="thermalSensorsContainer-thermal_sensors-0" class="listr">
+		(Updating...)<br /><br />
+	</div>
+</div>
+</div>
+<input type="hidden" id="thermal_sensors-config" name="thermal_sensors-config" value="" />
+
+<div id="widget-thermal_sensors-0_panel-footer" class="widgetconfigdiv panel-footer collapse" >
+	<form action="/widgets/widgets/thermal_sensors.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+		<input type="hidden" name="widgetkey" value="thermal_sensors-0">
+		<div class="form-group">  <label for="descr" class="col-sm-4 control-label">Widget title</label>  <div class="col-sm-4">    <input type="text" name="descr" id="descr" value="Thermal Sensors" class="form-control" />  </div></div>		<div class="form-group">
+			<label class="col-sm-6 control-label">
+				Thresholds in <span class="thermal_sensors_widget_unit">&deg;C</span><br/><span class="thermal_sensors_widget_range">(1&ndash;100)</span>:			</label>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Zone Warning</label>
+			<div class="col-sm-4">
+				<input type="text" name="thermal_sensors_widget_zone_warning_threshold" id="thermal_sensors_widget_zone_warning_threshold" value="60" class="form-control" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Zone Critical</label>
+			<div class="col-sm-4">
+				<input type="text" name="thermal_sensors_widget_zone_critical_threshold" id="thermal_sensors_widget_zone_critical_threshold" value="70" class="form-control" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Core Warning</label>
+			<div class="col-sm-4">
+				<input type="text" name="thermal_sensors_widget_core_warning_threshold" id="thermal_sensors_widget_core_warning_threshold" value="60" class="form-control" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-4 control-label">Core Critical</label>
+			<div class="col-sm-4">
+				<input type="text" name="thermal_sensors_widget_core_critical_threshold" id="thermal_sensors_widget_core_critical_threshold" value="70" class="form-control" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-4 control-label">PCH Warning</label>
+			<div class="col-sm-4">
+				<input type="text" name="thermal_sensors_widget_pch_warning_threshold" id="thermal_sensors_widget_pch_warning_threshold" value="60" class="form-control" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-4 control-label">PCH Critical</label>
+			<div class="col-sm-4">
+				<input type="text" name="thermal_sensors_widget_pch_critical_threshold" id="thermal_sensors_widget_pch_critical_threshold" value="70" class="form-control" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label class="col-sm-6 control-label">Display settings:</label>
+		</div>
+
+		<div class="form-group">
+			<label for="thermal_sensors_widget_show_raw_output" class="col-sm-4 control-label">Show raw output</label>
+			<div class="col-sm-6 checkbox">
+				<label>
+					<input type="checkbox" name="thermal_sensors_widget_show_raw_output" id="thermal_sensors_widget_show_raw_output" value="" />
+					(no graph)				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="thermal_sensors_widget_show_full_sensor_name" class="col-sm-4 control-label">Show full sensor name</label>
+			<div class="col-sm-6 checkbox">
+				<label>
+					<input type="checkbox" name="thermal_sensors_widget_show_full_sensor_name" id="thermal_sensors_widget_show_full_sensor_name" value="" />
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="thermal_sensors_widget_show_fahrenheit" class="col-sm-4 control-label">Show temperature in Fahrenheit</label>
+			<div class="col-sm-6 checkbox">
+				<label>
+					<input type="checkbox" name="thermal_sensors_widget_show_fahrenheit" id="thermal_sensors_widget_show_fahrenheit" value="" />
+				</label>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-4 col-sm-6">
+				<button type="submit" class="btn btn-primary"><i class="fa-solid fa-save icon-embed-btn"></i>Save</button>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<span>* A proper Thermal Sensor / Module can be configured under <br />
+			&nbsp;&nbsp;&nbsp;<a href="system_advanced_misc.php">System &gt; Advanced &gt; Miscellaneous : Thermal Sensors section</a>.</span>
+		</div>
+	</form>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-dyn_dns_status-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="services_dyndns.php"> Dynamic DNS Status</a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-dyn_dns_status-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-dyn_dns_status-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-dyn_dns_status-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-dyn_dns_status-0_panel-body" class="panel-body collapse in">
+						
+<div class="table-responsive">
+<table id="dyn_dns_status" class="table table-hover table-striped table-condensed">
+	<thead>
+	<tr>
+		<th style="width:5%;">Int.</th>
+		<th style="width:20%;">Service</th>
+		<th style="width:25%;">Hostname</th>
+		<th style="width:25%;">Cached IP</th>
+	</tr>
+	</thead>
+	<tbody>
+		<tr ondblclick="document.location='services_dyndns_edit.php?id=0'">
+		<td>Failover</td>
+		<td>Route 53</td>
+				<td>zid<wbr>.soulsolucoes<wbr>.soulsolucoes<wbr>.com</td>
+		<td><div id="dyndnsstatus0">Checking ...</div></td>
+	</tr>
+		<tr ondblclick="document.location='services_dyndns_edit.php?id=1'">
+		<td>Failover</td>
+		<td>Route 53</td>
+				<td>controller<wbr>.soulsolucoes<wbr>.com</td>
+		<td><div id="dyndnsstatus1">Checking ...</div></td>
+	</tr>
+			</tbody>
+</table>
+</div>
+<!-- close the body we're wrapped in and add a configuration-panel -->
+</div><div id="widget-dyn_dns_status-0_panel-footer" class="panel-footer collapse">
+
+<form action="/widgets/widgets/dyn_dns_status.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+	<div class="form-group">  <label for="descr" class="col-sm-4 control-label">Widget title</label>  <div class="col-sm-4">    <input type="text" name="descr" id="descr" value="Dynamic DNS Status" class="form-control" />  </div></div>    <div class="panel panel-default col-sm-10">
+		<div class="panel-body">
+			<input type="hidden" name="widgetkey" value="dyn_dns_status-0">
+			<div class="table responsive">
+				<table class="table table-striped table-hover table-condensed">
+					<thead>
+						<tr>
+							<th>Interface</th>
+							<th>Service</th>
+							<th>Hostname</th>
+							<th>Show</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>Failover</td>
+							<td>Route 53</td>
+														<td>zid.soulsolucoes.soulsolucoes.com</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="0" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>Failover</td>
+							<td>Route 53</td>
+														<td>controller.soulsolucoes.com</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="1" type="checkbox" checked></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-6">
+			<button type="submit" class="btn btn-primary"><i class="fa-solid fa-save icon-embed-btn"></i>Save</button>
+			<button id="widget-dyn_dns_status-0_showallnone" type="button" class="btn btn-info"><i class="fa-solid fa-undo icon-embed-btn"></i>All</button>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+
+	events.push(function(){
+		// --------------------- Centralized widget refresh system ------------------------------
+
+		// Callback function called by refresh system when data is retrieved
+		function dyndnscallback_dyn_dns_status0(s) {
+			// The server returns a string of statuses separated by vertical bars
+			var responseStrings = s.split("|");
+			for (var count=0; count<responseStrings.length; count++) {
+				var divlabel = "#widget-dyn_dns_status-0 #dyndnsstatus" + count;
+				$(divlabel).prop('innerHTML',responseStrings[count]);
+			}
+		}
+
+		// POST data to send via AJAX
+		var postdata = {
+			ajax: "ajax",
+			getdyndnsstatus : "dyn_dns_status-0"		 };
+
+		// Create an object defining the widget refresh AJAX call
+		var dyndnsObject = new Object();
+		dyndnsObject.name = "DynDNS";
+		dyndnsObject.url = "/widgets/widgets/dyn_dns_status.widget.php";
+		dyndnsObject.callback =  dyndnscallback_dyn_dns_status0;
+		dyndnsObject.parms = postdata;
+		dyndnsObject.freq = 30;
+
+		// Register the AJAX object
+		register_ajax(dyndnsObject);
+
+		// ---------------------------------------------------------------------------------------------------
+
+		set_widget_checkbox_events("#widget-dyn_dns_status-0_panel-footer [id^=show]", "widget-dyn_dns_status-0_showallnone");
+	});
+
+//]]>
+</script>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-ntp_status-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="status_ntpd.php"> NTP Status</a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-ntp_status-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-ntp_status-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-ntp_status-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-ntp_status-0_panel-body" class="panel-body collapse in">
+						<script type="text/javascript">
+//<![CDATA[
+// Have to convert the date to UTC time to match the PHP clock not the local client clock.
+function convertDateToUTC(date,offset) {
+	var hours_offset = offset/3600;
+	var minute_offset = (offset % 3600)/60;
+	var d = new Date(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate(), date.getUTCHours() + hours_offset, date.getUTCMinutes() + minute_offset, date.getUTCSeconds())
+	return d;
+}
+
+var ntp_d = convertDateToUTC(new Date('2026-01-26T11:57:51-03:00'), '-10800');
+var tz = '-03';
+setInterval(function() {
+	ntp_d.setSeconds(ntp_d.getSeconds() + 1);
+	var thisSecond = ntp_d.getSeconds();
+	var thisMinute = ntp_d.getMinutes();
+	var thisHour = ntp_d.getHours();
+
+	// Add leading zeros to minutes and seconds as required
+	thisMinute = thisMinute < 10 ? "0" + thisMinute : thisMinute;
+	thisSecond = thisSecond < 10 ? "0" + thisSecond : thisSecond;
+
+	$('[id="ntpStatusClock"]').html(thisHour +':' + thisMinute + ':' + thisSecond + ' ' + tz);
+}, 1000);
+//]]>
+</script>
+<table id="ntpstatus" class="table table-striped table-hover">
+	<tbody>
+		<tr>
+					<td>Updating...</td>
+				</tr>
+	</tbody>
+</table>
+<script type="text/javascript">
+//<![CDATA[
+
+events.push(function(){
+	// --------------------- Centralized widget refresh system ------------------------------
+
+	// Callback function called by refresh system when data is retrieved
+	function ntp_callback(s) {
+		$('[id="ntpstatus"]').prop('innerHTML', s);
+	}
+
+	// POST data to send via AJAX
+	var postdata = {
+		ajax: "ajax",
+	 	updateme : "yes"
+	 };
+
+	// Create an object defining the widget refresh AJAX call
+	var ntpObject = new Object();
+	ntpObject.name = "NTP";
+	ntpObject.url = "/widgets/widgets/ntp_status.widget.php";
+	ntpObject.callback = ntp_callback;
+	ntpObject.parms = postdata;
+	ntpObject.freq = 60;
+
+	// Register the AJAX object
+	register_ajax(ntpObject);
+
+	// ---------------------------------------------------------------------------------------------------
+});
+
+//]]>
+</script>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-services_status-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="status_services.php"> Services Status</a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-services_status-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-services_status-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-services_status-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-services_status-0_panel-body" class="panel-body collapse in">
+						<div class="table-responsive">
+	<table class="table table-striped table-hover table-condensed">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Service</th>
+				<th>Description</th>
+				<th>Action</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>captiveportal</td>
+				<td>Captive Portal: hotspot_dt (HOTSPOT_SOUL)</td>
+				<td><a href="#" id="captiveportal-restartservice-hotspot_dt"><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="captiveportal-stopservice-hotspot_dt"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>dhcpd</td>
+				<td>ISC DHCP Server</td>
+				<td><a href="#" id="restartservice-dhcpd" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-dhcpd"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>dpinger</td>
+				<td>Gateway Monitoring Daemon</td>
+				<td><a href="#" id="restartservice-dpinger" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-dpinger"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>FRR bfdd</td>
+				<td>FRR BFD daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-FRR bfdd"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>FRR bgpd</td>
+				<td>FRR BGP routing daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-FRR bgpd"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>FRR mgmtd</td>
+				<td>FRR management daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-FRR mgmtd"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>FRR ospf6d</td>
+				<td>FRR OSPF6 routing daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-FRR ospf6d"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>FRR ospfd</td>
+				<td>FRR OSPF routing daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-FRR ospfd"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>FRR ripd</td>
+				<td>FRR RIP routing daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-FRR ripd"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>FRR staticd</td>
+				<td>FRR static route daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-FRR staticd"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>FRR watchfrr</td>
+				<td>FRR watchfrr watchdog daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-FRR watchfrr"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>FRR zebra</td>
+				<td>FRR core/abstraction daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-FRR zebra"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>iperf</td>
+				<td>iperf Network Performance Testing Daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-iperf"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>memcache</td>
+				<td>Memcached helper for NGrules</td>
+				<td><a href="#" id="restartservice-memcache" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-memcache"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>named</td>
+				<td>Bind Domain Name Service</td>
+				<td><a title="Start Service" href="#" id="startservice-named"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>ntpd</td>
+				<td>NTP clock sync</td>
+				<td><a href="#" id="restartservice-ntpd" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-ntpd"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>openvpn</td>
+				<td>OpenVPN server: OpenVPN Remote Access</td>
+				<td><a href="#" id="openvpn-restartservice-server-1" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="openvpn-stopservice-server-1" ><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>openvpn_2</td>
+				<td>OpenVPN server: OpenVPN Remote Access - Not Full</td>
+				<td><a href="#" id="openvpn-restartservice-server-6" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="openvpn-stopservice-server-6" ><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>openvpn_3</td>
+				<td>OpenVPN server: VPN Remote Redirect Temp</td>
+				<td><a href="#" id="openvpn-restartservice-server-7" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="openvpn-stopservice-server-7" ><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>openvpn_4</td>
+				<td>OpenVPN client: VPN Manager</td>
+				<td><a href="#" id="openvpn-restartservice-client-2" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="openvpn-stopservice-client-2" ><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>openvpn_5</td>
+				<td>OpenVPN client: VPN S2S Soul-Cloud</td>
+				<td><a href="#" id="openvpn-restartservice-client-3" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="openvpn-stopservice-client-3" ><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>openvpn_6</td>
+				<td>OpenVPN client: VPN S2S VPC5</td>
+				<td><a href="#" id="openvpn-restartservice-client-4" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="openvpn-stopservice-client-4" ><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>pfb_dnsbl</td>
+				<td>pfBlockerNG DNSBL service</td>
+				<td><a title="Start Service" href="#" id="startservice-pfb_dnsbl"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>pfb_filter</td>
+				<td>pfBlockerNG firewall filter service</td>
+				<td><a title="Start Service" href="#" id="startservice-pfb_filter"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>redis</td>
+				<td>Redis log daemon</td>
+				<td><a href="#" id="restartservice-redis" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-redis"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>snort</td>
+				<td>Snort IDS/IPS Daemon</td>
+				<td><a title="Start Service" href="#" id="startservice-snort"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>sshd</td>
+				<td>Secure Shell Daemon</td>
+				<td><a href="#" id="restartservice-sshd" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-sshd"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-danger fa-solid fa-times-circle fa-1x" title="Stopped"><span style="display: none">Stopped</span></i></td>
+				<td>syslog-ng</td>
+				<td>Syslog-ng helper for Userauth logs</td>
+				<td><a title="Start Service" href="#" id="startservice-syslog-ng"><i class="fa-solid fa-play-circle"></i></a> </td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>syslogd</td>
+				<td>System Logger Daemon</td>
+				<td><a href="#" id="restartservice-syslogd" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-syslogd"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>unbound</td>
+				<td>DNS Resolver</td>
+				<td><a href="#" id="restartservice-unbound" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-unbound"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>wireguard</td>
+				<td>WireGuard</td>
+				<td><a href="#" id="restartservice-wireguard" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-wireguard"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+			<tr>
+				<td><i class="text-success fa-solid fa-check-circle fa-1x" title="Running"><span style="display: none">Running</span></i></td>
+				<td>zabbix_agentd</td>
+				<td>Zabbix Agent Host Monitor Daemon</td>
+				<td><a href="#" id="restartservice-zabbix_agentd" ><i class="fa-solid fa-arrow-rotate-right" title="Restart Service"></i></a>
+<a href="#" id="stopservice-zabbix_agentd"><i class="fa-regular fa-circle-stop" title="Stop Service"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+</div>
+<!-- close the body we're wrapped in and add a configuration-panel -->
+</div><div id="widget-services_status-0_panel-footer" class="panel-footer collapse">
+
+<form action="/widgets/widgets/services_status.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+	<div class="form-group">  <label for="descr" class="col-sm-4 control-label">Widget title</label>  <div class="col-sm-4">    <input type="text" name="descr" id="descr" value="Services Status" class="form-control" />  </div></div>    <div class="panel panel-default col-sm-10">
+		<div class="panel-body">
+			<input type="hidden" name="widgetkey" value="services_status-0">
+			<div class="table responsive">
+				<table class="table table-striped table-hover table-condensed">
+					<thead>
+						<tr>
+							<th>Service</th>
+							<th>Show</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>captiveportal</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="captiveportal" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>dhcpd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="dhcpd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>dpinger</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="dpinger" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>FRR bfdd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="FRR bfdd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>FRR bgpd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="FRR bgpd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>FRR mgmtd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="FRR mgmtd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>FRR ospf6d</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="FRR ospf6d" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>FRR ospfd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="FRR ospfd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>FRR ripd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="FRR ripd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>FRR staticd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="FRR staticd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>FRR watchfrr</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="FRR watchfrr" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>FRR zebra</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="FRR zebra" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>iperf</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="iperf" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>memcache</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="memcache" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>named</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="named" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>ntpd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="ntpd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>openvpn</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="openvpn" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>openvpn_2</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="openvpn_2" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>openvpn_3</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="openvpn_3" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>openvpn_4</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="openvpn_4" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>openvpn_5</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="openvpn_5" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>openvpn_6</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="openvpn_6" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>pfb_dnsbl</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="pfb_dnsbl" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>pfb_filter</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="pfb_filter" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>redis</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="redis" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>snort</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="snort" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>sshd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="sshd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>syslog-ng</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="syslog-ng" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>syslogd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="syslogd" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>unbound</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="unbound" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>wireguard</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="wireguard" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>zabbix_agentd</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="zabbix_agentd" type="checkbox" checked></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-6">
+			<button type="submit" class="btn btn-primary"><i class="fa-solid fa-save icon-embed-btn"></i>Save</button>
+			<button id="widget-services_status-0_showallnone" type="button" class="btn btn-info"><i class="fa-solid fa-undo icon-embed-btn"></i>All</button>
+		</div>
+	</div>
+</form>
+
+<script type="text/javascript">
+//<![CDATA[
+	events.push(function(){
+		set_widget_checkbox_events("#widget-services_status-0_panel-footer [id^=show]", "widget-services_status-0_showallnone");
+	});
+//]]>
+</script>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-snort_alerts-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="snort/snort_alerts.php"> Snort Alerts</a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-snort_alerts-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-snort_alerts-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-snort_alerts-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-snort_alerts-0_panel-body" class="panel-body collapse in">
+						
+<table  class="table table-hover table-striped table-condensed" style="table-layout: fixed;">
+	<colgroup>
+		<col style="width: 24%;" />
+		<col style="width: 38%;" />
+		<col style="width: 38%;" />
+	</colgroup>
+	<thead>
+		<tr>
+			<th>Interface/Time</th>
+			<th>Src/Dst Address</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody id="snort-alert-entries">
+		</tbody>
+</table>
+
+<!-- close the body we're wrapped in and add a configuration-panel -->
+</div>
+
+<div id="widget-snort_alerts-0_panel-footer" class="panel-footer collapse">
+	<input type="hidden" id="snort_alerts-config" name="snort_alerts-config" value="" />
+		<form action="/widgets/widgets/snort_alerts.widget.php" method="post" name="iformd" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+			<div class="form-group">
+				<label for="widget_snort_display_lines" class="col-sm-4 control-label">Alerts to Display:</label>
+				<div class="col-sm-3">
+					<input type="number" name="widget_snort_display_lines" class="form-control" id="widget_snort_display_lines" 
+					value="10" placeholder="5" min="1" max="20" />
+				</div>
+				<div class="col-sm-3">
+					<button id="submitd" name="submitd" type="submit" class="btn btn-sm btn-primary">Save</button>
+				</div>
+			</div>
+		</form>
+
+<script type="text/javascript">
+//<![CDATA[
+<!-- needed in the snort_alerts.js file code -->
+	var snortupdateDelay = 15000; // update every 15 seconds
+	var snort_nentries = 10; // number of alerts to display (5 is default)
+//]]>
+</script>
+
+					</div>
+				</div>
+				</div><div class="col-md-4" id="widgets-col3">				<div class="panel panel-default" id="widget-gateways-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="status_gateways.php"> Gateways</a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-gateways-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-gateways-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-gateways-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-gateways-0_panel-body" class="panel-body collapse in">
+						
+<div class="table-responsive">
+	<table class="table table-striped table-hover table-condensed">
+		<thead>
+			<tr>
+				<th></th>
+				<th>Name</th>
+				<th>RTT</th>
+				<th>RTTsd</th>
+				<th>Loss</th>
+				<th>Status</th>
+			</tr>
+		</thead>
+		<tbody id="gateways-0-gwtblbody">
+<tr>
+<td title='Gateway enabled'><i class='fa-regular fa-circle-check'></i></td>
+<td title='Default gateway'>
+GW_TELLIUS <i class="fa-solid fa-globe"></i><br /><div id="gateway" style="display:inline"><b>186.0.145.177 (8.8.8.8)</b></div>
+</td>
+<td>13.6ms</td>
+<td>2.2ms</td>
+<td>0.0%</td>
+<td class="bg-success">Online</td>
+</tr>
+<tr>
+<td title='Gateway enabled'><i class='fa-regular fa-circle-check'></i></td>
+<td title=''>
+WAN2_PPPOE<br /><div id="gateway1" style="display:inline"><b>10.199.199.245 (8.8.4.4)</b></div>
+</td>
+<td>15.4ms</td>
+<td>1.0ms</td>
+<td>0.0%</td>
+<td class="bg-success">Online</td>
+</tr>
+<tr>
+<td title='Gateway enabled'><i class='fa-regular fa-circle-check'></i></td>
+<td title=''>
+OPT22_VPNV4<br /><div id="gateway2" style="display:inline"><b>10.234.0.1</b></div>
+</td>
+<td>15.1ms</td>
+<td>3.2ms</td>
+<td>0.0%</td>
+<td class="bg-success">Online</td>
+</tr>
+<tr>
+<td title='Gateway enabled'><i class='fa-regular fa-circle-check'></i></td>
+<td title=''>
+VPN_REDIRECT_VPNV4<br /><div id="gateway3" style="display:inline"><b>10.210.210.1</b></div>
+</td>
+<td>0.0ms</td>
+<td>0.0ms</td>
+<td>0.0%</td>
+<td class="bg-success">Online</td>
+</tr>
+		</tbody>
+	</table>
+</div>
+<!-- close the body we're wrapped in and add a configuration-panel -->
+</div><div id="widget-gateways-0_panel-footer" class="panel-footer collapse">
+<form action="/widgets/widgets/gateways.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+	<div class="form-group">  <label for="descr" class="col-sm-4 control-label">Widget title</label>  <div class="col-sm-4">    <input type="text" name="descr" id="descr" value="Gateways" class="form-control" />  </div></div>	<div class="form-group">
+		<label class="col-sm-4 control-label">Display</label>
+		<div class="col-sm-6">
+			<div class="radio">
+				<label><input name="display_type" type="radio" id="display_type_gw_ip" value="gw_ip"  /> Gateway IP</label>
+			</div>
+			<div class="radio">
+				<label><input name="display_type" type="radio" id="display_type_monitor_ip" value="monitor_ip"  />Monitor IP</label>
+			</div>
+			<div class="radio">
+				<label><input name="display_type" type="radio" id="display_type_both_ip" value="both_ip" checked />Both</label>
+			</div>
+		</div>
+	</div>
+
+	<br />
+
+    <div class="panel panel-default col-sm-10">
+		<div class="panel-body">
+			<input type="hidden" name="widgetkey" value="gateways-0">
+			<div class="table responsive">
+				<table class="table table-striped table-hover table-condensed">
+					<thead>
+						<tr>
+							<th>Gateway</th>
+							<th>Show</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>GW_TELLIUS</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="GW_TELLIUS" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>WAN2_PPPOE</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="WAN2_PPPOE" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>OPT22_VPNV4</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="OPT22_VPNV4" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VPN_REDIRECT_VPNV4</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="VPN_REDIRECT_VPNV4" type="checkbox" checked></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-6">
+			<button type="submit" class="btn btn-primary"><i class="fa-solid fa-save icon-embed-btn"></i>Save</button>
+			<button id="widget-gateways-0_showallnone" type="button" class="btn btn-info"><i class="fa-solid fa-undo icon-embed-btn"></i>All</button>
+		</div>
+	</div>
+</form>
+
+<script>
+//<![CDATA[
+
+events.push(function(){
+	// --------------------- Centralized widget refresh system ------------------------------
+
+	// Callback function called by refresh system when data is retrieved
+	function gateways_callback(s) {
+		$("#gateways-0-gwtblbody").html(s);
+	}
+
+	// POST data to send via AJAX
+	var postdata = {
+		ajax: "ajax",
+		widgetkey : "gateways-0"	 };
+
+	// Create an object defining the widget refresh AJAX call
+	var gatewaysObject = new Object();
+	gatewaysObject.name = "Gateways";
+	gatewaysObject.url = "/widgets/widgets/gateways.widget.php";
+	gatewaysObject.callback = gateways_callback;
+	gatewaysObject.parms = postdata;
+	gatewaysObject.freq = 20;
+
+	// Register the AJAX object
+	register_ajax(gatewaysObject);
+
+	// ---------------------------------------------------------------------------------------------------
+});
+
+//]]>
+</script>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-interfaces-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="status_interfaces.php"> Interfaces</a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-interfaces-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-interfaces-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-interfaces-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-interfaces-0_panel-body" class="panel-body collapse in">
+						
+<div class="table-responsive" id="ifaces_status_interfaces-0">
+	<table class="table table-striped table-hover table-condensed">
+		<tbody>
+
+	<tr>
+		<td title="igc0 (60:be:b4:03:ca:9e)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=wan">
+				WAN			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							186.0.145.178									</td>
+	</tr>
+	<tr>
+		<td title="bridge0 (58:9c:fc:10:ff:ab)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=lan">
+				LAN			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+												</td>
+
+		<td >
+							172.25.200.254									</td>
+	</tr>
+	<tr>
+		<td title="igc1 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt1">
+				IGC1			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							n/a
+					</td>
+	</tr>
+	<tr>
+		<td title="igc2 (60:be:b4:03:ca:a0)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt2">
+				IGC2			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							n/a
+					</td>
+	</tr>
+	<tr>
+		<td title="igc3 (60:be:b4:03:ca:a1)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt3">
+				TESTE_MESA			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							100baseTX &lt;full-duplex&gt;					</td>
+
+		<td >
+							n/a
+					</td>
+	</tr>
+	<tr>
+		<td title="igc2.21 (60:be:b4:03:ca:a0)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt4">
+				VLAN_CLIENTES			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							172.21.21.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.101 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt5">
+				VLAN101			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							192.168.2.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.102 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt6">
+				VLAN102			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							192.168.12.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.103 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt7">
+				VLAN103			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							10.255.6.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.104 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt8">
+				VLAN104			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							10.255.1.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.107 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt11">
+				VLAN107			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							10.255.11.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.108 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt12">
+				VLAN108			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							10.255.12.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.109 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt13">
+				VLAN109			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							10.255.13.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.110 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt14">
+				VLAN110			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							10.255.110.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.117 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt15">
+				VLAN117			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							10.255.117.1									</td>
+	</tr>
+	<tr>
+		<td title="pppoe0 ()" style="white-space: nowrap;">
+			<i class="fa-regular fa-hard-drive"></i>
+			<a href="/interfaces.php?if=opt16">
+				WAN2			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							Uptime: 21d 01:43:16					</td>
+
+		<td >
+							168.197.35.53									</td>
+	</tr>
+	<tr>
+		<td title="igc5 (60:be:b4:03:ca:a3)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt17">
+				IGC5			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							100baseTX &lt;full-duplex&gt;					</td>
+
+		<td >
+							n/a
+					</td>
+	</tr>
+	<tr>
+		<td title="tun_wg0 ()" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt18">
+				WIRE_GUARD			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+												</td>
+
+		<td >
+							10.20.255.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.40 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt19">
+				VLAN40_SAITO			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							10.50.50.1									</td>
+	</tr>
+	<tr>
+		<td title="igc1.50 (60:be:b4:03:ca:9f)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt20">
+				VLAN50_SAITO			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							10.200.100.1									</td>
+	</tr>
+	<tr>
+		<td title="igc2.22 (60:be:b4:03:ca:a0)" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt21">
+				VLAN_HOTSPOT			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+							1000baseT &lt;full-duplex&gt;					</td>
+
+		<td >
+							172.22.22.1									</td>
+	</tr>
+	<tr>
+		<td title="ovpnc2 ()" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt22">
+				VPN_MANAGER			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+												</td>
+
+		<td >
+							10.234.0.21									</td>
+	</tr>
+	<tr>
+		<td title="ovpns7 ()" style="white-space: nowrap;">
+			<i class="fa-solid fa-sitemap"></i>
+			<a href="/interfaces.php?if=opt23">
+				VPN_REDIRECT			</a>
+		</td>
+		<td>
+							<i class="fa-solid fa-arrow-up text-success" title="up"></i>
+					</td>
+		<td>
+												</td>
+
+		<td >
+							10.210.210.1									</td>
+	</tr>
+		</tbody>
+	</table>
+</div>
+<!-- close the body we're wrapped in and add a configuration-panel -->
+</div><div id="widget-interfaces-0_panel-footer" class="panel-footer collapse">
+
+<form action="/widgets/widgets/interfaces.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+	<div class="form-group">  <label for="descr" class="col-sm-4 control-label">Widget title</label>  <div class="col-sm-4">    <input type="text" name="descr" id="descr" value="Interfaces" class="form-control" />  </div></div>	<div class="panel panel-default col-sm-10">
+		<div class="panel-body">
+			<input type="hidden" name="widgetkey" value="interfaces-0">
+			<div class="table responsive">
+				<table class="table table-striped table-hover table-condensed">
+					<thead>
+						<tr>
+							<th>Interface</th>
+							<th>Show</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>WAN</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="wan" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>LAN</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="lan" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>IGC1</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt1" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>IGC2</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt2" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>TESTE_MESA</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt3" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN_CLIENTES</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt4" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN101</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt5" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN102</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt6" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN103</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt7" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN104</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt8" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN107</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt11" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN108</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt12" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN109</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt13" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN110</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt14" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN117</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt15" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>WAN2</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt16" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>IGC5</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt17" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>WIRE_GUARD</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt18" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN40_SAITO</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt19" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN50_SAITO</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt20" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VLAN_HOTSPOT</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt21" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VPN_MANAGER</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt22" type="checkbox" checked></td>
+						</tr>
+						<tr>
+							<td>VPN_REDIRECT</td>
+							<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt23" type="checkbox" checked></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<div class="col-sm-offset-3 col-sm-6">
+			<button type="submit" class="btn btn-primary"><i class="fa-solid fa-save icon-embed-btn"></i>Save</button>
+			<button id="widget-interfaces-0_showallnone" type="button" class="btn btn-info"><i class="fa-solid fa-undo icon-embed-btn"></i>All</button>
+		</div>
+	</div>
+</form>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+	events.push(function(){
+
+		/// --------------------- Centralized widget refresh system ------------------------------
+
+		// Callback function called by refresh system when data is retrieved
+		function interfaces_callback(s) {
+			$("#ifaces_status_interfaces-0").html(s);
+		}
+
+		// POST data to send via AJAX
+		var postdata = {
+			widgetkey :"interfaces-0",
+			ajax: "ajax"
+		};
+
+		// Create an object defining the widget refresh AJAX call
+		var interfacesObject = new Object();
+		interfacesObject.name = "Interfaces";
+		interfacesObject.url = "/widgets/widgets/interfaces.widget.php";
+		interfacesObject.callback = interfaces_callback;
+		interfacesObject.parms = postdata;
+		interfacesObject.freq = 15;
+
+		// Register the AJAX object
+		register_ajax(interfacesObject);
+
+		// ---------------------------------------------------------------------------------------------------
+
+		set_widget_checkbox_events("#widget-interfaces-0_panel-footer [id^=show]", "widget-interfaces-0_showallnone");
+
+	});
+//]]>
+</script>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-pfblockerng-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="pfblockerng/pfblockerng_alerts.php?view=unified"> <span title="Click to open Unified Log tab">pfBlockerNG</span></a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-pfblockerng-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-pfblockerng-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-pfblockerng-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-pfblockerng-0_panel-body" class="panel-body collapse in">
+						
+<form id="formicons" action="/widgets/widgets/pfblockerng.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+<input type="hidden" name="pfblockerngack" id="pfblockerngack" value="">
+<input type="hidden" name="pfblockerngclear" id="pfblockerngclear" value="">
+<input type="hidden" name="pfblockerngclearall" id="pfblockerngclearall" value="">
+<input type="hidden" name="pfblockerngclearip" id="pfblockerngclearip" value="">
+<input type="hidden" name="pfblockerngcleardnsbl" id="pfblockerngcleardnsbl" value="">
+
+	<!-- Print failed downloads (if any) -->
+	<div class="table-responsive">
+		<div id="pfBNG-failed">
+			<!-- Print failed contents, subsequent refresh by javascript function -->
+			&emsp;<small>MaxMind: Last-Modified: Fri, 17 Jan 2025 14:17:40 GMT</small>		</div>
+
+		<!-- Print Status header -->
+		<table class="table table-condensed">
+			<thead>
+				<tr>
+					<th width="17%"><!-- Status icon    --></th>
+					<th width="17%"><!-- IP/DNSBL count --></th>
+					<th width="17%"><!-- Permit count   --></th>
+					<th width="17%"><!-- Match count    --></th>
+					<th width="17%"><!-- Supp/White     --></th>
+					<th width="15%"><!-- Icons	    --></th>
+				</tr>
+			</thead>
+			<tbody id="pfBNG-header">
+				<!-- Print header contents, subsequent refresh by javascript function -->
+				<tr>
+					<td style="text-align: left;" title="pfBlockerNG is Disabled."><i class="PFBSTATUS fa-solid fa-times-circle text-danger"></i>&nbsp;&nbsp;<strong>IP</strong></td>
+					<td style="text-align: left;" class="pfb_title_Deny" title="Number of BLOCK & REJECT packet(s) blocked: 0
+Total Count: 0
+Last clear: "><i class="fa-solid fa-times text-danger"></i>&nbsp;&nbsp;<small><span class="pfb_Deny">0</span></small></td>
+					<td style="text-align: left;" class="pfb_title_Pass" title="Number of PASS packet(s) passed: 0
+Total Count: 0
+Last clear: "><i class="fa-solid fa-check text-success"></i>&nbsp;&nbsp;<small><span class="pfb_Pass">0</span></small></td>
+					<td style="text-align: left;" class="pfb_title_Match" title="Number of MATCH packet(s) matched: 0
+Total Count: 0
+Last clear: "><i class="fa-solid fa-filter"></i>&nbsp;&nbsp;<small><span class="pfb_Match">0</span></small></td>
+					<td style="text-align: left;" title="Number of IP entries in the Suppression List"><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;<a target="_blank" href="/pfblockerng/pfblockerng_ip.php#Suppression" title="Link to Suppression"><small><span class="pfb_Suppression">0</span></small></a></td>
+					<td>
+						<a target='_blank' href='pfblockerng/pfblockerng_log.php' title='Click to open Logs tab'>
+							<i class='fa-regular fa-rectangle-list'></i>
+					</a></td>
+				</tr>
+				<tr>
+					<td style="text-align: left;" title="DNSBL (Python mode) is Disabled."><i class="DNSBLSTATUS fa-solid fa-times-circle text-danger"></i>&nbsp;&nbsp;<strong>DNSBL</strong></td>
+					<td style="text-align: left;" class="pfb_title_DNSBL" title="Number of DNSBL Packet(s) blocked: 
+Total Count: 
+Last clear: "><i class="fa-solid fa-times text-danger"></i>&nbsp;&nbsp;<small><span class="pfb_DNSBL"></span></small></td>
+					<td style="text-align: left;" class="pfb_title_Queries" title="Number of Unbound Resolver Queries since last clearing
+Last clear: "><i class="fa-solid fa-history"></i>&nbsp;&nbsp;<small><span class="pfb_Queries">386</span></small></td>
+					<td style="text-align: left;" class="pfb_title_Percent" title="Percentage of Domains Blocked vs Unbound Resolver Queries"><i class="fa-solid fa-percent"></i>&nbsp;&nbsp;<small><span class="pfb_Percent">0</span></small></td>
+					<td style="text-align: left;" title="Number of Domain entries in the DNSBL Whitelist"><i class="fa-solid fa-list-ol"></i>&nbsp;&nbsp;<a target="_blank" href="/pfblockerng/pfblockerng_dnsbl.php#Whitelist" title="Link to Whitelist"><small><span class="pfb_Whitelist">0</span></small></a></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- Print main table header -->
+	<div class="table-responsive" style="max-height: 2500px; overflow: auto;">
+		<table id="pfb-tbl" class="table table-striped table-hover table-condensed sortable-theme-bootstrap" data-sortable>
+			<thead>
+				<tr>
+					<th id="pfB_col1" >Alias</th>
+					<th id="pfB_col2" title="The count can be a mixture of Single IPs or CIDR values">Count</th>
+					<th id="pfB_col3" title="Total Packet counts by IP Alias / DNSBL Group">Packets						<i class='fa-regular fa-trash-can icon-pointer' id='pfblockerngclearicon' title="Clear Packets"></i>
+					</th>
+					<th id="pfB_col4" title="Last Update (Date/Time) of the Alias">Updated</th>
+					<th><i class="fa-solid fa-turn-down" title="No Rules are Defined using this Alias"></i>&nbsp;<i class="fa-solid fa-turn-up text-success" title="Rules are Defined using this Alias (# of fw rules defined)"></i></th>
+				</tr>
+			</thead>
+			<tbody id="pfBNG-table">
+				<!-- Print table contents, subsequent refresh by javascript function -->
+							</tbody>
+		</table>
+	</div>
+</form>
+
+<!-- Widget customization settings wrench -->
+</div>
+<div id="widget-pfblockerng-0_panel-footer" class="panel-footer collapse">
+
+<form action="/widgets/widgets/pfblockerng.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+	<div class="form-group">
+		<label class="col-sm-8 control-label">Enable Alias Table Popup</label>
+		<div class="col-sm-2 checkbox">
+			<label><input type="checkbox" name="pfb_popup" value="on"
+				 /></label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="pfb_clearip" class="col-sm-8 control-label">Enter frequency to clear the IP counters</label>
+		<div class="col-sm-4">
+			<select name="pfb_clearip" class="form-control">
+							<option value="never" selected >Never</option>
+							<option value="daily"  >Daily</option>
+							<option value="weekly"  >Weekly</option>
+						</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="pfb_cleardnsbl" class="col-sm-8 control-label">Enter frequency to clear the DNSBL/Unbound counters</label>
+		<div class="col-sm-4">
+			<select name="pfb_cleardnsbl" class="form-control">
+							<option value="never" selected >Never</option>
+							<option value="daily"  >Daily</option>
+							<option value="weekly"  >Weekly</option>
+						</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="pfb_dnsblquery" class="col-sm-8 control-label">Enter DNSBL Resolver Query frequency (Default:5)</label>
+		<div class="col-sm-4">
+			<input type="number" name="pfb_dnsblquery" value="5"
+				min="5" max="300" class="form-control" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="pfb_maxfails" class="col-sm-8 control-label">Enter number of download fails to display (default:3)</label>
+		<div class="col-sm-3">
+			<input type="number" name="pfb_maxfails" value="3"
+				min="1" max="20" class="form-control" />
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="pfb_sortcolumn" class="col-sm-8 control-label">Enter Sort Column</label>
+		<div class="col-sm-4">
+			<select name="pfb_sortcolumn" class="form-control">
+							<option value="none" selected >None</option>
+							<option value="alias"  >Alias</option>
+							<option value="count"  >Count</option>
+							<option value="packets"  >Packets</option>
+							<option value="update"  >Update</option>
+						</select>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="pfb_sortmix" class="col-sm-8 control-label">Combined sort (IP/DNSBL)</label>
+		<div class="col-sm-2 checkbox">
+			<label><input type="checkbox" name="pfb_sortmix" value="on"
+				 /></label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="pfb_sortdir" class="col-sm-8 control-label">Select sort direction</label>
+		<div class="col-sm-4">
+			<label><input type="radio" name="pfb_sortdir" id="pfb_sortdir_asc" value="asc"
+				checked /> Ascending</label>
+			<label><input type="radio" name="pfb_sortdir" id="pfb_sortdir_des" value="des"
+				 /> Descending</label>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="pfb_maxheight" class="col-sm-8 control-label">Widget max height in px (default:2500)</label>
+		<div class="col-sm-3">
+			<input type="number" name="pfb_maxheight" value="2500"
+				min="100" max="2500" step="10" class="form-control" />
+		</div>
+	</div>
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-8">
+			<button type="submit" name="pfb_submit" id="pfb_submit" class="btn btn-primary">
+				<i class="fa-solid fa-save icon-embed-btn"></i>Save Settings			</button>
+		</div>
+	</div>
+</form>
+					</div>
+				</div>
+								<div class="panel panel-default" id="widget-traffic_graphs-0">
+					<div class="panel-heading">
+						<h2 class="panel-title">
+							<a href="status_graph.php"> Traffic Graphs</a>							<span class="widget-heading-icon">
+								<a data-toggle="collapse" href="#widget-traffic_graphs-0_panel-footer" class="config hidden">
+									<i class="fa-solid fa-wrench"></i>
+								</a>
+								<a data-toggle="collapse" href="#widget-traffic_graphs-0_panel-body">
+									<!--  actual icon is determined in css based on state of body -->
+									<i class="fa-solid fa-plus-circle"></i>
+								</a>
+								<a data-toggle="close" href="#widget-traffic_graphs-0">
+									<i class="fa-solid fa-times-circle"></i>
+								</a>
+							</span>
+						</h2>
+					</div>
+					<div id="widget-traffic_graphs-0_panel-body" class="panel-body collapse in">
+							<script src="/vendor/d3/d3.min.js?v=1747751119"></script>
+	<script src="/vendor/nvd3/nv.d3.min.js?v=1747751119"></script>
+	<script src="/vendor/visibility/visibility-1.2.3.min.js?v=1747751119"></script>
+
+	<link href="/vendor/nvd3/nv.d3.min.css" media="screen, projection" rel="stylesheet" type="text/css">
+
+	<div id="traffic-chart-error" class="alert alert-danger" style="display: none;"></div>
+<div id="traffic-chart-wan" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-lan" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt1" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt2" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt3" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt4" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt5" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt6" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt7" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt8" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt11" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt12" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt13" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt14" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt15" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt16" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt17" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt18" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt19" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt20" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt21" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt22" class="d3-chart traffic-widget-chart">	<svg></svg></div><div id="traffic-chart-opt23" class="d3-chart traffic-widget-chart">	<svg></svg></div>
+<!-- close the body we're wrapped in and add a configuration-panel -->
+</div>
+
+<div id="widget-traffic_graphs-0_panel-footer" class="panel-footer collapse">
+
+	<form action="/widgets/widgets/traffic_graphs.widget.php" method="post" class="form-horizontal"><input type='hidden' name='__csrf_magic' value="sid:dbdc1b658eeffd553e70c03bd67a4321c0adc0cf,1769439472" />
+		<div class="form-group">
+			<label for="traffic-graph-interval" class="col-sm-3 control-label">Refresh Interval</label>
+			<div class="col-sm-9">
+				<input type="number" id="refreshinterval" name="refreshinterval" value="1" min="1" max="10" class="form-control" />
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="invert" class="col-sm-3 control-label">Inverse</label>
+			<div class="col-sm-9">
+				<select class="form-control" id="invert" name="invert">
+				<option value="true" selected>On</option><option value="false">Off</option>				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="size" class="col-sm-3 control-label">Unit Size</label>
+			<div class="col-sm-9">
+				<select class="form-control" id="size" name="size">
+				<option value="8">Bits</option><option value="1" selected>Bytes</option>				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="backgroundupdate" class="col-sm-3 control-label">Background updates</label>
+			<div class="col-sm-9">
+				<select class="form-control" id="backgroundupdate" name="backgroundupdate">
+				<option value="true" selected>Keep graphs updated on inactive tab. (increases cpu usage)</option><option value="false">Clear graphs when not visible.</option>				</select>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<label for="smoothfactor" class="col-sm-3 control-label">Graph Smoothing</label>
+			<div class="col-sm-9">
+				<input type='range' id="smoothfactor" name='smoothfactor' class='form-control' min='0' max='5'value="0"/>
+			</div>
+		</div>
+
+		<div class="panel panel-default col-sm-10">
+			<div class="panel-body">
+				<div class="table responsive">
+					<table class="table table-striped table-hover table-condensed">
+						<thead>
+							<tr>
+								<th>Interface</th>
+								<th>Show</th>
+							</tr>
+						</thead>
+						<tbody>
+								<tr>
+								<td>WAN</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="wan" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>LAN</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="lan" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>IGC1</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt1" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>IGC2</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt2" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>TESTE_MESA</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt3" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN_CLIENTES</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt4" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN101</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt5" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN102</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt6" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN103</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt7" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN104</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt8" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN107</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt11" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN108</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt12" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN109</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt13" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN110</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt14" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN117</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt15" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>WAN2</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt16" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>IGC5</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt17" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>WIRE_GUARD</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt18" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN40_SAITO</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt19" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN50_SAITO</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt20" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VLAN_HOTSPOT</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt21" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VPN_MANAGER</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt22" type="checkbox" checked></td>
+							</tr>
+								<tr>
+								<td>VPN_REDIRECT</td>
+								<td class="col-sm-2"><input id="show[]" name ="show[]" value="opt23" type="checkbox" checked></td>
+							</tr>
+							</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+		<div class="form-group">
+			<div class="col-sm-offset-3 col-sm-6">
+				<button type="submit" class="btn btn-primary"><i class="fa-solid fa-save icon-embed-btn"></i>Save</button>
+				<button id="showalltgitems" type="button" class="btn btn-info"><i class="fa-solid fa-undo icon-embed-btn"></i>All</button>
+			</div>
+		</div>
+	</form>
+
+<script type="text/javascript">
+//<![CDATA[
+// Used by /js/traffic-graphs.js to display description from name
+var graph_interfacenames = {"wan":"WAN","lan":"LAN","opt1":"IGC1","opt2":"IGC2","opt3":"TESTE_MESA","opt4":"VLAN_CLIENTES","opt5":"VLAN101","opt6":"VLAN102","opt7":"VLAN103","opt8":"VLAN104","opt11":"VLAN107","opt12":"VLAN108","opt13":"VLAN109","opt14":"VLAN110","opt15":"VLAN117","opt16":"WAN2","opt17":"IGC5","opt18":"WIRE_GUARD","opt19":"VLAN40_SAITO","opt20":"VLAN50_SAITO","opt21":"VLAN_HOTSPOT","opt22":"VPN_MANAGER","opt23":"VPN_REDIRECT"};
+
+events.push(function() {
+
+	var InterfaceString = "wan|lan|opt1|opt2|opt3|opt4|opt5|opt6|opt7|opt8|opt11|opt12|opt13|opt14|opt15|opt16|opt17|opt18|opt19|opt20|opt21|opt22|opt23";
+	var RealInterfaceString = "igc0|bridge0|igc1|igc2|igc3|igc2.21|igc1.101|igc1.102|igc1.103|igc1.104|igc1.107|igc1.108|igc1.109|igc1.110|igc1.117|pppoe0|igc5|tun_wg0|igc1.40|igc1.50|igc2.22|ovpnc2|ovpns7";
+	window.graph_backgroundupdate = true;
+
+	window.interval = 1;
+	window.invert = JSON.parse(true);
+	window.size = 1;
+	window.smoothing = 0;
+	window.interfaces = InterfaceString.split("|").filter(function(entry) { return entry.trim() != ''; });
+	window.realinterfaces = RealInterfaceString.split("|").filter(function(entry) { return entry.trim() != ''; });
+
+	graph_init();
+	graph_visibilitycheck();
+
+	set_widget_checkbox_events("#widget-traffic_graphs-0_panel-footer [id^=show]", "showalltgitems");
+});
+//]]>
+</script>
+
+<script src="/js/traffic-graphs.js?v=1747751119"></script>
+					</div>
+				</div>
+				</div>
+</div>
+
+
+<script type="text/javascript">
+//<![CDATA[
+
+dirty = false;
+function updateWidgets(newWidget) {
+	var sequence = '';
+
+	$('.container .col-md-4').each(function(idx, col) {
+		$('.panel', col).each(function(idx, widget) {
+			var isOpen = $('.panel-body', widget).hasClass('in');
+			var widget_basename = widget.id.split('-')[1];
+
+			// Only save details for panels that have id's like 'widget-*'
+			// Some widgets create other panels, so ignore any of those.
+			if ((widget.id.split('-')[0] == 'widget') && (typeof widget_basename !== 'undefined')) {
+				sequence += widget_basename + ':' + col.id.split('-')[1] + ':' + (isOpen ? 'open' : 'close') + ':' + widget.id.split('-')[2] + ',';
+			}
+		});
+	});
+
+	if (typeof newWidget !== 'undefined') {
+		// The system_information widget is always added to column one. Others go in column two
+		if (newWidget == "system_information") {
+			sequence += newWidget.split('-')[0] + ':' + 'col1:open:next';
+		} else {
+			sequence += newWidget.split('-')[0] + ':' + 'col2:open:next';
+		}
+	}
+
+	$('input[name=sequence]', $('#widgetSequence_form')).val(sequence);
+}
+
+// Determine if all the checkboxes are checked
+function are_all_checked(checkbox_panel_ref) {
+	var allBoxesChecked = true;
+	$(checkbox_panel_ref).each(function() {
+		if ((this.type == 'checkbox') && !this.checked) {
+			allBoxesChecked = false;
+		}
+	});
+	return allBoxesChecked;
+}
+
+// If the checkboxes are all checked, then clear them all.
+// Otherwise set them all.
+function set_clear_checkboxes(checkbox_panel_ref) {
+	checkTheBoxes = !are_all_checked(checkbox_panel_ref);
+
+	$(checkbox_panel_ref).each(function() {
+		$(this).prop("checked", checkTheBoxes);
+	});
+}
+
+// Set the given id to All or None button depending if the checkboxes are all checked.
+function set_all_none_button(checkbox_panel_ref, all_none_button_id) {
+	if (are_all_checked(checkbox_panel_ref)) {
+		text = "None";
+	} else {
+		text = "All";
+	}
+
+	$("#" + all_none_button_id).html('<i class="fa-solid fa-undo icon-embed-btn"></i>' + text);
+}
+
+// Setup the necessary events to manage the All/None button and included checkboxes
+// used for selecting the items to show on a widget.
+function set_widget_checkbox_events(checkbox_panel_ref, all_none_button_id) {
+		set_all_none_button(checkbox_panel_ref, all_none_button_id);
+
+		$(checkbox_panel_ref).change(function() {
+			set_all_none_button(checkbox_panel_ref, all_none_button_id);
+		});
+
+		$("#" + all_none_button_id).click(function() {
+			set_clear_checkboxes(checkbox_panel_ref);
+			set_all_none_button(checkbox_panel_ref, all_none_button_id);
+		});
+}
+
+// ---------------------Centralized widget refresh system -------------------------------------------
+// These need to live outside of the events.push() function to enable the widgets to see them
+var ajaxspecs = new Array();	// Array to hold widget refresh specifications (objects )
+var ajaxcntr = 0;
+
+// Add a widget refresh object to the array list
+function register_ajax(ws) {
+  ajaxspecs.push(ws);
+}
+// ---------------------------------------------------------------------------------------------------
+
+events.push(function() {
+	// Make panels destroyable
+	$('.container .panel-heading a[data-toggle="close"]').each(function (idx, el) {
+		$(el).on('click', function(e) {
+			$(el).parents('.panel').remove();
+			updateWidgets();
+			// Submit the form save/display all selected widgets
+			$('[name=widgetForm]').submit();
+		})
+	});
+
+	// Make panels sortable
+	$('.container .col-md-4').sortable({
+		handle: '.panel-heading',
+		cursor: 'grabbing',
+		connectWith: '.container .col-md-4',
+		update: function(){
+			dirty = true;
+			$('#btnstore').removeClass('invisible');
+		}
+	});
+
+	// On clicking a widget to install . .
+	$('[id^=btnadd-]').click(function(event) {
+		// Add the widget name to the list of displayed widgets
+		updateWidgets(this.id.replace('btnadd-', ''));
+
+		// Submit the form save/display all selected widgets
+		$('[name=widgetForm]').submit();
+	});
+
+
+	$('#btnstore').click(function() {
+		updateWidgets();
+		dirty = false;
+		$(this).addClass('invisible');
+		$('[name=widgetForm]').submit();
+	});
+
+	// provide a warning message if the user tries to change page before saving
+	$(window).bind('beforeunload', function(){
+		if (dirty) {
+			return ("One or more widgets have been moved but have not yet been saved");
+		} else {
+			return undefined;
+		}
+	});
+
+	// Show the fa-save icon in the breadcrumb bar if the user opens or closes a panel (In case he/she wants to save the new state)
+	// (Sometimes this will cause us to see the icon when we don't need it, but better that than the other way round)
+	$('.panel').on('hidden.bs.collapse shown.bs.collapse', function (e) {
+	    if (e.currentTarget.id != 'widget-available') {
+			$('#btnstore').removeClass("invisible");
+		}
+	});
+
+	// --------------------- Centralized widget refresh system ------------------------------
+	ajaxtimeout = false;
+
+	function make_ajax_call(wd) {
+		$.ajax({
+			type: 'POST',
+			url: wd.url,
+			dataType: 'html',
+			data: wd.parms,
+
+			success: function(data){
+				if (data.length > 0 ) {
+					// If the session has timed out, display a pop-up
+					if (data.indexOf("SESSION_TIMEOUT") === -1) {
+						wd.callback(data);
+					} else {
+						if (ajaxtimeout === false) {
+							ajaxtimeout = true;
+							alert("The dashboard web session has timed out.\nIt will not update until you refresh the page and log-in again.");
+						}
+					}
+				}
+
+			},
+
+			error: function(e){
+				console.log("Error: " + e);
+			}
+		});
+	}
+
+	function execute_ajax_call(item){
+		if ((ajaxcntr % item.freq) === 0) {
+			make_ajax_call(item);
+		}
+	}
+
+	// Loop through each AJAX widget refresh object, make the AJAX call and pass the
+	// results back to the widget's callback function
+	function executewidget() {
+		ajaxspecs.forEach(execute_ajax_call);
+
+		if (++ajaxcntr >= 4096) {
+			ajaxcntr = 0;
+		}
+
+		setTimeout(function() { executewidget(); }, 1000);
+	}
+
+	// Kick it off
+	executewidget();
+
+	//----------------------------------------------------------------------------------------------------
+});
+//]]>
+</script>
+
+<script src="widgets/javascript/pfblockerng.js?v=1757433695"></script><script src="widgets/javascript/snort_alerts.js?v=1757433265"></script><script src="widgets/javascript/thermal_sensors.js?v=1747751119"></script>	</div>
+	<footer class="footer">
+		<div class="container">
+			<p class="text-muted">
+				<a id="tpl" style="display: none;" href="#" title="Top of page"><i class="fa-regular fa-square-caret-up pull-left"></i></a>
+				<a target="_blank" href="https://pfsense.org">pfSense</a> is developed and maintained by <a target="_blank" href="https://netgate.com">Netgate. </a> &copy; ESF 2004 - 2026<a target="_blank" href="https://pfsense.org/license"> View license.</a>				<a id="tpr" style="display: none;" href="#" title="Top of page"><i class="fa-regular fa-square-caret-up pull-right"></i></a>
+			</p>
+		</div>
+	</footer>
+
+	<!-- This use of filemtime() is intended to fool the browser into reloading the file (not using the cached version) if the file is changed -->
+
+	<script src="/vendor/jquery/jquery-3.7.1.min.js?v=1747751119"></script>
+ 	<script src="/vendor/jquery-ui/jquery-ui-1.13.2.min.js?v=1747751119"></script>
+	<script src="/vendor/bootstrap/js/bootstrap.min.js?v=1747751119"></script>
+	<script src="/js/pfSense.js?v=1747751119"></script>
+	<script src="/js/pfSenseHelpers.js?v=1747751119"></script>
+	<script src="/js/polyfills.js?v=1747751119"></script>
+	<script src="/vendor/sortable/sortable.js?v=1747751119"></script>
+
+	<script type="text/javascript" src="/vendor/jquery-treegrid/js/jquery.treegrid.min.js?v=1747751119"></script>
+	<script type="text/javascript" src="/vendor/js-cookie/js.cookie.js?v=1747751119"></script>
+
+	<script type="text/javascript">
+	//<![CDATA[
+		// Un-hide the "Top of page" icons if the page is larger than the window
+		if ($(document).height() > $(window).height()) {
+		    $('[id^=tp]').show();
+		}
+	//]]>
+	</script>
+<script type="text/javascript">CsrfMagic.end();</script></body>
+</html>
