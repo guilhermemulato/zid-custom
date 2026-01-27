@@ -29,6 +29,15 @@
 - Grid background sutil, scrollbar customizada e paleta de cores dark premium implementadas.
 - Watermark/logo do pfSense removido.
 - Responsividade funcional para mobile, tablet e desktop.
+- **Dashboard Layout** corrigido com sistema de 2 colunas funcionando perfeitamente.
+- **Drag-and-Drop** entre colunas do Dashboard implementado e testado (v0.4.5).
+  - Adicionado `min-height: 600px` nas colunas para garantir área de drop adequada.
+  - Widgets podem ser movidos livremente entre coluna 1 e coluna 2.
+  - Persistência de posições após reload da página verificada e funcionando.
+- **Botão "+" (Available Widgets)** corrigido e funcional (v0.4.6).
+  - Seletor CSS `.collapse` tornado mais específico para não afetar painéis do Dashboard.
+  - Painel de widgets disponíveis agora abre/fecha corretamente.
+  - 21 widgets disponíveis para adicionar ao Dashboard.
 
 ## Scripts (setup/update/apply)
 - `apply.sh`: copia `zid-canvas.css` e assets de `/conf/zid-ui` para `/usr/local/www` (idempotente).
