@@ -1,102 +1,93 @@
 # Changelog
 
-## 0.4.6 - 2026-01-26
-- CORREÇÃO CRÍTICA: Corrige botão "+" (Available Widgets) que não funcionava.
-- Torna seletor CSS `.collapse` mais específico para não afetar painéis do Dashboard.
-- Painel de widgets disponíveis agora abre/fecha corretamente.
-- CSS agora afeta apenas collapse no sidebar/nav, não em toda a página.
+## 0.3.4 - 2026-01-27
+- Corrige verificacao de admin usando privs reais do usuario.
+- Remove referencia de marca original na UI de Servicos e topbar.
 
-## 0.4.5 - 2026-01-26
-- CORREÇÃO CRÍTICA: Adiciona min-height de 600px nas colunas do Dashboard.
-- Corrige problema de drag-and-drop entre colunas.
-- Widgets agora podem ser arrastados entre coluna 1 e coluna 2 sem problemas.
-- Resolve issue onde colunas vazias ou com poucos widgets não tinham área suficiente para drop.
+## 0.3.3 - 2026-01-27
+- Ajusta pagina de Servicos para nao expor marca original.
+- Corrige resposta admin-only em APIs.
+- Lista interfaces reais no configurador de DHCP.
 
-## 0.4.4 - 2026-01-26
-- Melhora destaque visual do botão "Salvar" ordem dos widgets no Dashboard.
-- Adiciona animação pulse e indicador vermelho no botão quando há alterações não salvas.
-- Botão de salvar agora aparece em verde vibrante (#10b981) com efeito glow.
-- Adiciona tooltip visual (badge vermelho) para indicar mudanças pendentes.
-- Melhora UX: usuário agora vê claramente quando precisa salvar as mudanças de posição dos widgets.
+## 0.3.2 - 2026-01-27
+- Adiciona configuracao de pool DHCP na pagina de Servicos.
+- Ajusta status do DHCP para refletir processo real.
 
-## 0.4.3 - 2026-01-26
-- Corrige layout dos widgets do Dashboard para respeitar configuração de colunas.
-- Adiciona sistema de grid Bootstrap para organização dos widgets.
-- Implementa suporte para 2, 3 e 4 colunas de widgets conforme configuração.
-- Adiciona responsividade mobile (100% largura em telas pequenas).
-- Corrige float e clearfix para alinhamento correto dos widgets.
+## 0.3.1 - 2026-01-27
+- Adiciona controle de servico (start/stop/restart) para DHCP via API segura.
+- Atualiza install.sh com sudoers para service.sh.
+- Atualiza specs com regra de nao expor pfSense.
 
-## 0.4.2 - 2026-01-26
-- Limita altura do painel de Notices (alertas PHP) com max-height: 200px.
-- Adiciona scroll automático para alertas longos.
-- Compacta exibição de stack traces e erros PHP.
-- Melhora formatação de código dentro de alertas.
-- Adiciona botão collapse para painel de notices.
-- Reduz tamanho de fonte em alertas para melhor densidade.
+## 0.3 - 2026-01-27
+- Adiciona sidebar com navegacao principal.
+- Cria pagina de Servicos com status do DHCP via API.
 
-## 0.4.1 - 2026-01-26
-- Corrige menu lateral expandido por padrão.
-- Adiciona collapse/expand automático nos submenus.
-- Melhora espaçamento e compactação do menu lateral.
-- Adiciona ícones de expand/collapse nos itens do menu.
-- Otimiza visualização do sidebar para melhor usabilidade.
+## 0.2.9 - 2026-01-27
+- Adiciona script de limpeza de bundles temporarios e padrao no specs.
 
-## 0.4 - 2026-01-26
-- Adiciona widget GeoBlocked Map para visualização de bloqueios geográficos.
-- Integra Leaflet.js para mapas interativos com tema dark.
-- Implementa marcadores animados com efeito pulse nos países bloqueados.
-- Adiciona estatísticas em tempo real: total de bloqueios e países bloqueados.
-- Cria Top 5 ranking de países com mais bloqueios.
-- Atualização automática a cada 30 segundos via AJAX.
-- Adiciona estilos customizados para Leaflet no CSS principal.
-- Inclui arquivo JSON de exemplo com dados de bloqueio.
-- Documentação completa de instalação e personalização do widget.
+## 0.2.8 - 2026-01-27
+- Simplifica instalacao: executar install.sh dentro do bundle extraido.
+- Atualiza README com fluxo de instalacao unico.
 
-## 0.3 - 2026-01-26
-- Reescrita completa do CSS para compatibilidade total com pfSense CE 2.8.1.
-- Remove modificações estruturais (sidebar fixa, margins) que quebravam o layout.
-- Implementa apenas estilização visual (cores, tipografia, componentes).
-- Adiciona suporte completo a: panels, tabelas, botões, formulários, alerts, modals.
-- Melhora scrollbar customizada e grid background sutil.
-- Mantém fontes locais (Plus Jakarta Sans + JetBrains Mono).
-- Corrige responsividade para mobile, tablet e desktop.
+## 0.2.7 - 2026-01-27
+- Adiciona script unico de instalacao automatizada (install-zid-ui.sh).
 
-## 0.2 - 2026-01-26
-- Reestrutura a navegacao para sidebar fixa, aproximando o template.
+## 0.2.6 - 2026-01-27
+- Atualiza README com instalacao, update, debug e checklist.
 
-## 0.1.9 - 2026-01-26
-- Ajusta cores do menu (navlnk/dropdown) e links dos widgets.
+## 0.2.5 - 2026-01-27
+- Implementa SQLite para auditoria e preferencias da UI.
 
-## 0.1.8 - 2026-01-26
-- Ajusta tipografia e contraste do menu lateral e headers de widgets.
-- Refina tabelas e listagens para melhor legibilidade.
+## 0.2.4 - 2026-01-27
+- Corrige bootstrap de auth para evitar tela de login do pfSense.
+- Ajusta verificacao de sessao para usar session_auth sem authgui.
 
-## 0.1.7 - 2026-01-26
-- Remove logo SVG (svg#logo) na navbar para eliminar watermark remanescente.
+## 0.2.3 - 2026-01-27
+- Cria tela de login customizada da ZID UI e rota de logout.
+- Mantem autenticacao do pfSense sem expor a interface original.
 
-## 0.1.6 - 2026-01-26
-- Reforca bloqueio do watermark pfSense em mais containers e pseudo-elementos.
-- Update.sh agora informa status do download e aplicacao.
+## 0.2.2 - 2026-01-27
+- Ajusta exibicao de CPU/Memoria no dashboard.
+- Adiciona botao de logout na topbar.
 
-## 0.1.5 - 2026-01-26
-- Forca remocao total do watermark/logo e grid de fundo.
-- Update.sh agora informa status do download e aplicacao.
+## 0.2.1 - 2026-01-27
+- Finaliza fase 6 com install/update e integrações de segurança.
+- Ajusta specs com fluxo de update admin + CSRF.
 
-## 0.1.4 - 2026-01-26
-- Remove o watermark/logo de fundo do pfSense para layout limpo.
+## 0.2 - 2026-01-27
+- Adiciona fluxo de update seguro (install.sh, update.sh, sudoers e endpoint admin).
+- Implementa botao Update no dashboard e fluxo de execucao via API.
 
-## 0.1.3 - 2026-01-26
-- Ajusta bundle para sempre gerar pasta raiz (zid-ui/) na descompactacao.
+## 0.1.9 - 2026-01-27
+- Adiciona Leaflet local e mapa funcional com polling de eventos.
+- Exibe overlay de modo offline quando tiles falham.
 
-## 0.1.2 - 2026-01-26
-- Adiciona setup.sh para instalacao rapida no pfSense.
+## 0.1.8 - 2026-01-27
+- Corrige endpoints API para carregar bootstrap antes das validacoes de auth.
 
-## 0.1.1 - 2026-01-26
-- Implementa o tema zid-canvas com tokens, tipografia local e grid de fundo.
-- Adiciona assets locais (svg e fontes) sem dependencia externa.
-- Cria scripts apply.sh e update.sh para persistencia e update.
+## 0.1.7 - 2026-01-27
+- Adiciona log de erros PHP dedicado para diagnostico dos endpoints da ZID UI.
 
-## 0.1 - 2026-01-26
-- Atualiza o plano final alinhado ao template de referencia.
-- Registra estrutura de entregaveis, bundle e scripts.
-- Define versao inicial e requisitos de design.
+## 0.1.6 - 2026-01-27
+- Monta dashboard com KPIs, grid de widgets e placeholder do mapa.
+- Adiciona polling por widget e endpoints base para log tail e eventos do mapa.
+
+## 0.1.5 - 2026-01-27
+- Adiciona core PHP para métricas/serviços/geo e endpoints API base (health/metrics).
+
+## 0.1.4 - 2026-01-27
+- Corrige roteamento para permitir acesso via /index.php na ZID UI.
+
+## 0.1.3 - 2026-01-27
+- Corrige include do fastcgi_params e ajuste do listen http2 no server block do nginx.
+
+## 0.1.2 - 2026-01-27
+- Adiciona mecanismo de include do nginx com geracao automatica do server block (porta 8444).
+- Cria scripts base de boot (rc) e helper para garantir include idempotente.
+- Atualiza specs com detalhes do bundle.
+
+## 0.1.1 - 2026-01-27
+- Adiciona estrutura inicial da ZID UI (bootstrap, router, layout e paginas base).
+- Inclui CSS base com tokens visuais e assets iniciais.
+- Adiciona script auxiliar para descobrir `fastcgi_pass` no pfSense.
+- Documenta ajustes iniciais da nova UI em specs.

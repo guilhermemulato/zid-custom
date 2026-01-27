@@ -1,0 +1,36 @@
+#!/bin/sh
+#
+# PROVIDE: zid-ui
+# REQUIRE: LOGIN nginx php-fpm
+# KEYWORD: shutdown
+#
+. /etc/rc.subr
+
+name="zid_ui"
+rcvar="zid_ui_enable"
+
+load_rc_config $name
+: ${zid_ui_enable:="NO"}
+
+command="/usr/sbin/daemon"
+command_args="-p /var/run/zid-ui.pid -t zid-ui -o /var/log/zid-ui.log /bin/sleep 2147483647"
+
+start_precmd="zid_ui_precmd"
+
+ZID_UI_LOG="/var/log/zid-ui.log"
+ZID_UI_ENSURE="/usr/local/sbin/zid-ui-ensure-include"
+
+zid_ui_precmd() {
+  echo "[zid-ui] ensuring nginx include..." >> "${ZID_UI_LOG}"
+
+  if [ ! -x "${ZID_UI_ENSURE}" ]; then
+    echo "[zid-ui] ERRO: ${ZID_UI_ENSURE} nao encontrado" >> "${ZID_UI_LOG}"
+    return 1
+  fi
+
+  ${ZID_UI_ENSURE} >> "${ZID_UI_LOG}" 2>&1 || return 1
+
+  service nginx reload >/dev/null 2>&1 || service nginx restart >/dev/null 2>&1 || true
+}
+
+run_rc_command "$1"

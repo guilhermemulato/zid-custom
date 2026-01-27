@@ -1,0 +1,143 @@
+#!/bin/sh
+set -eu
+
+LOG_FILE="/var/log/zid-ui.log"
+APP_ETC="/usr/local/etc/zid-ui"
+CONF_FILE="${APP_ETC}/zid-ui.conf"
+NGINX_DIR="${APP_ETC}/nginx"
+NGINX_CONF="${NGINX_DIR}/zid-ui.conf"
+INCLUDE_LINE="include /usr/local/etc/zid-ui/nginx/zid-ui.conf;"
+
+log() {
+  echo "[zid-ui] $(date '+%Y-%m-%d %H:%M:%S') $*" >> "${LOG_FILE}"
+}
+
+cfg_get() {
+  key="$1"
+  awk -F= -v k="$key" 'BEGIN{v=""} $0 ~ "^[[:space:]]*"k"=" {sub("^[^=]*=",""); gsub("\r",""); v=$0} END{print v}' "${CONF_FILE}" 2>/dev/null || true
+}
+
+find_webconf() {
+  for f in /var/etc/nginx-webConfigurator.conf /var/etc/nginx-webConfigurator.conf* /var/etc/nginx/*.conf /var/etc/nginx*.conf; do
+    if [ -f "$f" ]; then
+      echo "$f"
+      return 0
+    fi
+  done
+  return 1
+}
+
+find_fastcgi_pass() {
+  conf="$1"
+  awk '/fastcgi_pass/{print $2; exit}' "$conf" 2>/dev/null | sed 's/;*$//' || true
+}
+
+find_ssl_cert() {
+  conf="$1"
+  awk '/ssl_certificate[[:space:]]+/{print $2; exit}' "$conf" 2>/dev/null | sed 's/;*$//' || true
+}
+
+find_ssl_key() {
+  conf="$1"
+  awk '/ssl_certificate_key[[:space:]]+/{print $2; exit}' "$conf" 2>/dev/null | sed 's/;*$//' || true
+}
+
+build_nginx_conf() {
+  webconf="$1"
+  fastcgi_pass="$(find_fastcgi_pass "$webconf")"
+  if [ -z "$fastcgi_pass" ]; then
+    log "ERRO: fastcgi_pass nao encontrado em $webconf"
+    return 1
+  fi
+
+  port="$(cfg_get port)"
+  if [ -z "$port" ]; then
+    port="8444"
+  fi
+
+  ssl_cert="$(find_ssl_cert "$webconf")"
+  ssl_key="$(find_ssl_key "$webconf")"
+
+  mkdir -p "${NGINX_DIR}"
+
+  cat > "${NGINX_CONF}" <<EOF_CONF
+server {
+  listen ${port} ssl;
+  listen [::]:${port} ssl;
+  http2 on;
+  server_name _;
+
+  root /usr/local/www/zid-ui;
+  index index.php;
+
+  access_log /var/log/nginx/zid-ui.access.log;
+  error_log /var/log/nginx/zid-ui.error.log;
+
+  client_max_body_size 8m;
+
+  ssl_certificate ${ssl_cert};
+  ssl_certificate_key ${ssl_key};
+
+  location / {
+    try_files \$uri /index.php?\$query_string;
+  }
+
+  location ~ \\.php$ {
+    include /usr/local/etc/nginx/fastcgi_params;
+    fastcgi_param SCRIPT_FILENAME \$document_root\$fastcgi_script_name;
+    fastcgi_param PHP_VALUE "log_errors=1\nerror_log=/var/log/nginx/zid-ui.php.log";
+    fastcgi_pass ${fastcgi_pass};
+  }
+
+  location ~* \\.(inc|xml|db|sqlite|log)$ {
+    deny all;
+  }
+}
+EOF_CONF
+
+  log "nginx include gerado em ${NGINX_CONF} (fastcgi_pass=${fastcgi_pass}, port=${port})"
+}
+
+inject_include() {
+  target="$1"
+
+  if grep -q "${INCLUDE_LINE}" "$target" 2>/dev/null; then
+    log "include ja presente em ${target}"
+    return 0
+  fi
+
+  tmp="${target}.zid-ui.tmp"
+  inserted=0
+
+  awk -v inc="$INCLUDE_LINE" '
+    {print}
+    $0 ~ /^http[[:space:]]*\{/ && inserted==0 {print "    " inc; inserted=1}
+  ' "$target" > "$tmp"
+
+  if grep -q "${INCLUDE_LINE}" "$tmp"; then
+    mv "$tmp" "$target"
+    log "include inserido em ${target}"
+    return 0
+  fi
+
+  rm -f "$tmp"
+  echo "${INCLUDE_LINE}" >> "$target"
+  log "include adicionado no fim de ${target}"
+}
+
+main() {
+  if [ ! -f "$LOG_FILE" ]; then
+    touch "$LOG_FILE" || true
+  fi
+
+  webconf="$(find_webconf || true)"
+  if [ -z "$webconf" ]; then
+    log "ERRO: config nginx do pfSense nao encontrado"
+    return 1
+  fi
+
+  build_nginx_conf "$webconf"
+  inject_include "$webconf"
+}
+
+main "$@"

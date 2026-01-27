@@ -6,3 +6,4 @@
 - Alteração pequena: use sufixo incremental (ex.: `1.6.1`).
 - Alteração grande: use sufixo incremental (ex.: `1.6`).
 - Gerar sempre ao final de cada implementação, um bundle com todos os arquivo necessario **zid-cavas-latest.tar.gz**
+- Sempre ao final de cada implementação, atualizar/aplicar direto no pfSense via SSH.
