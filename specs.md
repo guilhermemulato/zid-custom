@@ -9,6 +9,9 @@
 - Update seguro: endpoint admin + CSRF chama `/usr/local/etc/zid-ui/update.sh` via sudoers restrito.
 - Sidebar: menu principal com Servicos, Firewall e VPN.
 - Nunca exibir em nenhuma tela da ZID UI que existe pfSense por tras (branding ou nomenclatura).
+- DHCP: configurar pool, gateway, DNS e leases pela UI.
+- DHCP: gerenciar mapeamentos estaticos (MAC, IP, descricao).
+- Firewall: listar regras por interface com toggle, copia e ordenacao via drag and drop.
 
 ## Template de referencia
 - URL: https://firewall-canvas--guilhermemulato.replit.app

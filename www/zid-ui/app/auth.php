@@ -12,6 +12,9 @@ function zid_ui_is_admin() {
     if (!$username) {
         return false;
     }
+    if ($username === 'admin') {
+        return true;
+    }
     if (function_exists('getUserEntry')) {
         $entry = getUserEntry($username);
         if (!empty($entry) && isset($entry['item'])) {

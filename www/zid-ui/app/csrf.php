@@ -9,6 +9,9 @@ function zid_ui_csrf_token() {
     if (!isset($_SESSION['zid_ui_csrf'])) {
         $_SESSION['zid_ui_csrf'] = bin2hex(random_bytes(32));
     }
+    if (!isset($_COOKIE['zid_ui_csrf']) || $_COOKIE['zid_ui_csrf'] !== $_SESSION['zid_ui_csrf']) {
+        setcookie('zid_ui_csrf', $_SESSION['zid_ui_csrf'], 0, '/', '', false, true);
+    }
     return $_SESSION['zid_ui_csrf'];
 }
 
@@ -20,5 +23,8 @@ function zid_ui_csrf_validate($token) {
         return csrf_verify($token);
     }
     $expected = isset($_SESSION['zid_ui_csrf']) ? $_SESSION['zid_ui_csrf'] : '';
+    if (!$expected && isset($_COOKIE['zid_ui_csrf'])) {
+        $expected = $_COOKIE['zid_ui_csrf'];
+    }
     return is_string($token) && hash_equals($expected, $token);
 }

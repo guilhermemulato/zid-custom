@@ -46,5 +46,6 @@ require_once ZID_UI_APP . '/response.php';
 require_once ZID_UI_APP . '/layout.php';
 require_once ZID_UI_APP . '/metrics.php';
 require_once ZID_UI_APP . '/services.php';
+require_once ZID_UI_APP . '/firewall.php';
 require_once ZID_UI_APP . '/geo.php';
 require_once ZID_UI_APP . '/audit.php';

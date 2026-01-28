@@ -5,6 +5,7 @@ function zid_ui_render_layout($title, $content_html, $options = array()) {
     $show_topbar = !isset($options['show_topbar']) || $options['show_topbar'];
     $show_sidebar = !isset($options['show_sidebar']) || $options['show_sidebar'];
     $current_path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+    $layout_class = $show_sidebar ? 'layout' : 'layout layout-full';
     ?><!doctype html>
 <html lang="pt-BR">
 <head>
@@ -16,10 +17,13 @@ function zid_ui_render_layout($title, $content_html, $options = array()) {
 </head>
 <body>
   <div class="app">
-    <div class="layout">
+    <div class="<?php echo $layout_class; ?>">
       <?php if ($show_sidebar): ?>
         <aside class="sidebar">
-          <div class="sidebar-brand">ZID UI</div>
+          <div class="sidebar-brand">
+            <span class="brand-badge">ZID</span>
+            <span class="brand-text">Security</span>
+          </div>
           <nav class="sidebar-nav">
             <a class="sidebar-link <?php echo ($current_path === '/' || $current_path === '/dashboard') ? 'active' : ''; ?>" href="/dashboard">Dashboard</a>
             <a class="sidebar-link <?php echo ($current_path === '/services') ? 'active' : ''; ?>" href="/services">Servicos</a>

@@ -92,7 +92,16 @@ mv "${TMP_TARGET}" "${WWW_ROOT}"
 
 log "Deployed new version to ${WWW_ROOT}"
 
-service nginx reload >/dev/null 2>&1 || service nginx restart >/dev/null 2>&1 || true
+service nginx onereload >/dev/null 2>&1 || \
+  service nginx reload >/dev/null 2>&1 || \
+  service nginx restart >/dev/null 2>&1 || true
+
+if command -v pgrep >/dev/null 2>&1; then
+  PID="$(pgrep -f "nginx: master process /usr/local/sbin/nginx -c /var/etc/nginx-webConfigurator.conf" | head -n 1)"
+  if [ -n "${PID}" ]; then
+    kill -HUP "${PID}" >/dev/null 2>&1 || true
+  fi
+fi
 
 log "Update finished OK"
 echo "OK"

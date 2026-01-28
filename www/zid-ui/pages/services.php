@@ -68,6 +68,26 @@ ob_start();
         Range final
         <input name="range_to" type="text" placeholder="ex: 192.168.1.200" />
       </label>
+      <label>
+        Gateway (opcional)
+        <input name="gateway" type="text" placeholder="ex: 192.168.1.1" />
+      </label>
+      <label>
+        DNS 1 (opcional)
+        <input name="dns1" type="text" placeholder="ex: 1.1.1.1" />
+      </label>
+      <label>
+        DNS 2 (opcional)
+        <input name="dns2" type="text" placeholder="ex: 8.8.8.8" />
+      </label>
+      <label>
+        Lease padrao (segundos)
+        <input name="default_leasetime" type="text" placeholder="ex: 7200" />
+      </label>
+      <label>
+        Lease maxima (segundos)
+        <input name="max_leasetime" type="text" placeholder="ex: 86400" />
+      </label>
       <label class="checkbox">
         <input type="checkbox" name="enable" value="1" />
         Habilitar DHCP nesta interface
@@ -76,6 +96,52 @@ ob_start();
         <button class="btn btn-primary" type="submit">Salvar</button>
       </div>
       <div class="form-status" id="dhcp-config-status">Aguardando...</div>
+    </form>
+  </div>
+  <div class="panel" id="panel-dhcp-static">
+    <div class="panel-header">
+      <h2>Mapeamentos estaticos</h2>
+      <span class="panel-meta">DHCP - principais dados</span>
+    </div>
+    <div class="table-wrap">
+      <table class="data-table" id="dhcp-static-table">
+        <thead>
+          <tr>
+            <th>MAC</th>
+            <th>IP</th>
+            <th>Descricao</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td colspan="3">Carregando...</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <form class="form-grid" id="dhcp-static-form">
+      <label>
+        Interface
+        <select name="interface">
+          <?php foreach ($interfaces as $if => $descr): ?>
+            <option value="<?php echo htmlspecialchars($if, ENT_QUOTES, 'UTF-8'); ?>"><?php echo htmlspecialchars($descr, ENT_QUOTES, 'UTF-8'); ?></option>
+          <?php endforeach; ?>
+        </select>
+      </label>
+      <label>
+        MAC
+        <input name="mac" type="text" placeholder="ex: aa:bb:cc:dd:ee:ff" />
+      </label>
+      <label>
+        IP
+        <input name="ipaddr" type="text" placeholder="ex: 192.168.1.50" />
+      </label>
+      <label>
+        Descricao
+        <input name="descr" type="text" placeholder="ex: Impressora sala" />
+      </label>
+      <div class="form-actions">
+        <button class="btn btn-primary" type="submit">Salvar</button>
+      </div>
+      <div class="form-status" id="dhcp-static-status">Aguardando...</div>
     </form>
   </div>
 </section>

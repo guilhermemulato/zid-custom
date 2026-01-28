@@ -1,5 +1,33 @@
 # Changelog
 
+## 0.3.12 - 2026-01-28
+- Implementa Firewall Rules com listagem, toggle, copy e reorder.
+- Adiciona formulario de nova regra e layout inspirado no template.
+- Atualiza logo da sidebar com badge ZID.
+
+## 0.3.11 - 2026-01-28
+- Adiciona mapeamentos estaticos de DHCP (MAC, IP, descricao).
+
+## 0.3.10 - 2026-01-28
+- Ajusta reload do nginx para garantir aplicacao do include (onereload + HUP).
+
+## 0.3.9 - 2026-01-28
+- Adiciona configuracao de gateway, DNS e leases no DHCP.
+- Preenche configuracoes atuais do DHCP no formulario.
+
+## 0.3.8 - 2026-01-27
+- Corrige CSRF usando cookie de fallback para manter token entre requests.
+
+## 0.3.7 - 2026-01-27
+- Corrige admin-only para usuario admin local.
+- Garante envio de cookies nas chamadas fetch para CSRF.
+
+## 0.3.6 - 2026-01-27
+- Corrige layout do login quando sidebar esta oculta.
+
+## 0.3.5 - 2026-01-27
+- Ajusta card de login para ficar mais largo e centralizado.
+
 ## 0.3.4 - 2026-01-27
 - Corrige verificacao de admin usando privs reais do usuario.
 - Remove referencia de marca original na UI de Servicos e topbar.

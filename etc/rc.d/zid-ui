@@ -20,6 +20,20 @@ start_precmd="zid_ui_precmd"
 ZID_UI_LOG="/var/log/zid-ui.log"
 ZID_UI_ENSURE="/usr/local/sbin/zid-ui-ensure-include"
 
+reload_nginx() {
+  service nginx onereload >/dev/null 2>&1 && return 0
+  service nginx reload >/dev/null 2>&1 && return 0
+  service nginx restart >/dev/null 2>&1 && return 0
+  if command -v pgrep >/dev/null 2>&1; then
+    local pid
+    pid="$(pgrep -f "nginx: master process /usr/local/sbin/nginx -c /var/etc/nginx-webConfigurator.conf" | head -n 1)"
+    if [ -n "${pid}" ]; then
+      kill -HUP "${pid}" >/dev/null 2>&1 && return 0
+    fi
+  fi
+  return 0
+}
+
 zid_ui_precmd() {
   echo "[zid-ui] ensuring nginx include..." >> "${ZID_UI_LOG}"
 
@@ -30,7 +44,7 @@ zid_ui_precmd() {
 
   ${ZID_UI_ENSURE} >> "${ZID_UI_LOG}" 2>&1 || return 1
 
-  service nginx reload >/dev/null 2>&1 || service nginx restart >/dev/null 2>&1 || true
+  reload_nginx
 }
 
 run_rc_command "$1"
